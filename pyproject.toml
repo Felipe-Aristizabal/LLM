@@ -1,0 +1,32 @@
+[project]
+name = "tecnoquimicas-kb"
+version = "0.1.0"
+description = "Scraping + limpieza + chunking para Tecnoquímicas"
+readme = "README.md"
+requires-python = ">=3.10"
+
+# Dependencias 
+dependencies = [
+  "selenium==4.24.0",
+  "webdriver-manager==4.0.2",
+  "beautifulsoup4==4.12.3",
+  "lxml==5.2.2",
+  "html5lib==1.1",
+  "pandas==2.2.3",
+  "tldextract==5.1.2",
+  "requests==2.32.3",        
+  "urllib3==2.2.2"
+]
+
+[project.scripts]
+tq-kb = "tecnoquimicas_kb.cli:main"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+packages = ["src/tecnoquimicas_kb"]
