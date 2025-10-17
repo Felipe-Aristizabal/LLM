@@ -5,6 +5,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 
 # LLM providers
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_ollama import OllamaEmbeddings
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
 from dotenv import load_dotenv
@@ -19,8 +23,20 @@ def get_llm():
     model_id = os.getenv("GEN_MODEL_ID", "gemini-2.5-pro")
     return ChatGoogleGenerativeAI(model=model_id)  # requiere GOOGLE_API_KEY
 
+def _get_embeddings():
+    provider = os.getenv("EMBED_PROVIDER", "local").lower()
+    if provider == "google":
+        return GoogleGenerativeAIEmbeddings(model="text-embedding-004")
+    elif provider == "ollama":
+        model_id = os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text")
+        return OllamaEmbeddings(model=model_id)
+    else:
+        model_name = os.getenv("EMBED_MODEL_ID", "sentence-transformers/all-MiniLM-L6-v2")
+        return HuggingFaceEmbeddings(model_name=model_name)
+
 def load_index(index_dir="src/tecnoquimicas_kb/index/faiss"):
-    return FAISS.load_local(index_dir, embeddings=None, allow_dangerous_deserialization=True)
+    embeddings = _get_embeddings()
+    return FAISS.load_local(index_dir, embeddings=embeddings, allow_dangerous_deserialization=True)
 
 # ------- PROMPTS (en español) -------
 SYSTEM_BASE = """Eres un asistente de Tecnoquímicas (TQ).
