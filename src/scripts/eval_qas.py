@@ -1,4 +1,3 @@
-# scripts/eval_qas.py
 import json, time
 from tecnoquimicas_kb.rag.chains import load_index, answer
 from dotenv import load_dotenv

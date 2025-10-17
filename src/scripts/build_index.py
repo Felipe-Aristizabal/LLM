@@ -1,4 +1,3 @@
-
 from tecnoquimicas_kb.rag.index_builder import build_faiss
 
 if __name__ == "__main__":

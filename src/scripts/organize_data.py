@@ -1,6 +1,6 @@
-# scripts/organize_data.py
 import argparse, shutil
 from pathlib import Path
+
 
 def copy_dir(src: Path, dst: Path):
     if not src.exists():
@@ -16,11 +16,25 @@ def copy_dir(src: Path, dst: Path):
                 target.unlink()
             shutil.copy(str(p), str(target))
 
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--in", dest="in_dir", required=True, help="Carpeta OUT del scraper (ej: src/.../data/tmp/out)")
-    ap.add_argument("--clean-dir", required=True, help="Destino base para clean (tendrá subcarpetas chunks/ y clean_text/)")
-    ap.add_argument("--raw-dir", required=True, help="Destino base para raw (tendrá subcarpeta raw_html/)")
+    ap.add_argument(
+        "--in",
+        dest="in_dir",
+        required=True,
+        help="Carpeta OUT del scraper (ej: src/.../data/tmp/out)",
+    )
+    ap.add_argument(
+        "--clean-dir",
+        required=True,
+        help="Destino base para clean (tendrá subcarpetas chunks/ y clean_text/)",
+    )
+    ap.add_argument(
+        "--raw-dir",
+        required=True,
+        help="Destino base para raw (tendrá subcarpeta raw_html/)",
+    )
     args = ap.parse_args()
 
     in_dir = Path(args.in_dir)

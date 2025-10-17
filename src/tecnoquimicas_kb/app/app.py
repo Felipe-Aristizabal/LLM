@@ -1,4 +1,3 @@
-# streamlit run src/tecnoquimicas_kb/app/app.py
 import os, streamlit as st
 from tecnoquimicas_kb.rag.chains import load_index, summarize, make_faq, answer
 
@@ -10,19 +9,30 @@ with st.sidebar:
     provider = st.selectbox("Provider", ["gemini", "ollama"], index=0)
     os.environ["MODEL_PROVIDER"] = provider
     if provider == "gemini":
-        os.environ["GEN_MODEL_ID"] = st.text_input("Gemini model id", value=os.getenv("GEN_MODEL_ID", "gemini-2.5-pro"))
+        os.environ["GEN_MODEL_ID"] = st.text_input(
+            "Gemini model id", value=os.getenv("GEN_MODEL_ID", "gemini-2.5-pro")
+        )
         st.caption("Requiere GOOGLE_API_KEY en entorno.")
     else:
-        os.environ["OLLAMA_MODEL_ID"] = st.text_input("Ollama model id", value=os.getenv("OLLAMA_MODEL_ID", "gemma3:4b"))
+        os.environ["OLLAMA_MODEL_ID"] = st.text_input(
+            "Ollama model id", value=os.getenv("OLLAMA_MODEL_ID", "gemma3:4b")
+        )
         st.caption("Asegura `ollama run gemma3:4b` o `ollama pull gemma3:4b`.")
 
     st.header("Embeddings")
-    embp = st.selectbox("Embed provider", ["local","google","ollama"], index=["local","google","ollama"].index(os.getenv("EMBED_PROVIDER","local")))
+    embp = st.selectbox(
+        "Embed provider",
+        ["local", "google", "ollama"],
+        index=["local", "google", "ollama"].index(os.getenv("EMBED_PROVIDER", "local")),
+    )
     os.environ["EMBED_PROVIDER"] = embp
     if embp == "google":
         st.caption("Usará `text-embedding-004` (Google).")
     elif embp == "ollama":
-        os.environ["OLLAMA_EMBED_MODEL"] = st.text_input("Ollama embed model", value=os.getenv("OLLAMA_EMBED_MODEL","nomic-embed-text"))
+        os.environ["OLLAMA_EMBED_MODEL"] = st.text_input(
+            "Ollama embed model",
+            value=os.getenv("OLLAMA_EMBED_MODEL", "nomic-embed-text"),
+        )
 
 st.session_state.setdefault("vs", load_index())
 
@@ -51,4 +61,7 @@ with tab3:
                 with st.expander("Ver fragments recuperados"):
                     for i, d in enumerate(docs, 1):
                         st.write(f"#{i}", d.metadata)
-                        st.write(d.page_content[:900] + ("..." if len(d.page_content)>900 else ""))
+                        st.write(
+                            d.page_content[:900]
+                            + ("..." if len(d.page_content) > 900 else "")
+                        )

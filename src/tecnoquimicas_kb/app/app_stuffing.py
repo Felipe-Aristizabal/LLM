@@ -1,9 +1,7 @@
-import os, streamlit as st, sys, pathlib
+import os, streamlit as st
 from dotenv import load_dotenv
-from tecnoquimicas_kb.rag.stuffing import * 
-# # Asegura imports si no instalas el paquete en editable
-# sys.path.append(str(pathlib.Path(__file__).resolve().parents[2]))
-#(load_all_docs, summarize_stuffing, faq_stuffing, qa_stuffing)
+from tecnoquimicas_kb.rag.stuffing import *
+
 load_dotenv()
 
 st.set_page_config(page_title="TQ Q&A (Stuffing)", layout="wide")
@@ -14,14 +12,20 @@ with st.sidebar:
     provider = st.selectbox("Provider", ["gemini", "ollama"], index=0)
     os.environ["MODEL_PROVIDER"] = provider
     if provider == "gemini":
-        os.environ["GEN_MODEL_ID"] = st.text_input("Gemini model id", value=os.getenv("GEN_MODEL_ID", "gemini-2.5-pro"))
+        os.environ["GEN_MODEL_ID"] = st.text_input(
+            "Gemini model id", value=os.getenv("GEN_MODEL_ID", "gemini-2.5-pro")
+        )
         st.caption("Requiere GOOGLE_API_KEY en .env")
     else:
-        os.environ["OLLAMA_MODEL_ID"] = st.text_input("Ollama model id", value=os.getenv("OLLAMA_MODEL_ID", "gemma3:4b"))
+        os.environ["OLLAMA_MODEL_ID"] = st.text_input(
+            "Ollama model id", value=os.getenv("OLLAMA_MODEL_ID", "gemma3:4b")
+        )
         st.caption("Asegura `ollama pull gemma3:4b` o `gemma3:270m`.")
 
     st.header("Datos")
-    data_dir = st.text_input("Directorio de chunks limpios", value="src/tecnoquimicas_kb/data/clean")
+    data_dir = st.text_input(
+        "Directorio de chunks limpios", value="src/tecnoquimicas_kb/data/clean"
+    )
 
 if "docs" not in st.session_state:
     with st.spinner("Cargando documentos..."):
