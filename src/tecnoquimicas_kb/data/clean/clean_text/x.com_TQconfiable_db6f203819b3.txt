@@ -1,0 +1,33 @@
+title: TQ (Tecnoquímicas) (@TQconfiable) / X
+
+og:title: TQ (Tecnoquímicas) (@TQconfiable) / X
+
+ldjson:
+{"@context":"http://schema.org","@type":"ProfilePage","dateCreated":"2014-04-02T01:52:38.000Z","mainEntity":{"@type":"Person","additionalName":"TQconfiable","description":"Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo. Cuidamos la salud y el bienestar de las personas. #TQTotalmenteConfiable","homeLocation":{"@type":"Place","name":"Colombia"},"identifier":"2423010000","image":{"@type":"ImageObject","contentUrl":"https://pbs.twimg.com/profile_images/1734694560675045376/5QsZwd4w_400x400.jpg","thumbnailUrl":"https://pbs.twimg.com/profile_images/1734694560675045376/5QsZwd4w_normal.jpg"},"interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/FollowAction","name":"Follows","userInteractionCount":3171},{"@type":"InteractionCounter","interactionType":"https://schema.org/SubscribeAction","name":"Friends","userInteractionCount":122},{"@type":"InteractionCounter","interactionType":"https://schema.org/WriteAction","name":"Tweets","userInteractionCount":2533}],"name":"TQ (Tecnoquímicas)","url":"https://x.com/TQconfiable"},"contentRating":"","relatedLink":["https://t.co/NlZkkq1Swa","http://www.tqconfiable.com"]}
+
+texto_visible:
+TQ (Tecnoquímicas)
+2.533 posts
+Haz clic para Seguir TQconfiable
+TQ (Tecnoquímicas)
+@TQconfiable
+Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo. Cuidamos la salud y el bienestar de las personas.
+#TQTotalmenteConfiable
+Colombia
+tqconfiable.com
+Se unió el abril de 2014
+122
+Siguiendo
+3.171
+Seguidores
+@TQconfiable no ha posteado
+Cuando lo hagan, sus posts se mostrarán aquí.
+¿Eres nuevo en X?
+Regístrate ahora para obtener tu propia cronología personalizada.
+Crear cuenta
+Al registrarte, aceptas los
+Términos de servicio
+y la
+Política de privacidad
+, incluida la política de
+Uso de Cookies
