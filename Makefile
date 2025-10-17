@@ -1,8 +1,8 @@
 # ===== Makefile para LLM Tecnoquímicas =====
 # Requiere: uv (https://docs.astral.sh/uv/), Git Bash/WSL (o usa los comandos uv equivalentes en PowerShell)
 # Variables (puedes sobreescribir en la línea de comandos, p. ej.: make scrape-headless MAX_PAGES=50)
-LINKS ?= data/links.txt
-OUT_TMP ?= src/tecnoquimicas_kb/data/tmp/out
+LINKS ?= links.txt
+OUT_TMP ?= src/tecnoquimicas_kb/data/tmp/
 CLEAN_DIR ?= src/tecnoquimicas_kb/data/clean
 RAW_DIR ?= src/tecnoquimicas_kb/data/raw
 MAX_PAGES ?= 25
@@ -25,7 +25,7 @@ scrape-headful:
 #   - OUT_TMP/clean_text -> CLEAN_DIR/clean_text
 #   - OUT_TMP/chunks     -> CLEAN_DIR/chunks
 data-organize:
-	uv run python scripts/organize_data.py --in $(OUT_TMP) --clean-dir $(CLEAN_DIR) --raw-dir $(RAW_DIR)
+	uv run python src/scripts/organize_data.py --in $(OUT_TMP) --clean-dir $(CLEAN_DIR) --raw-dir $(RAW_DIR)
 
 # Ejecutar la app (modo Stuffing, sin FAISS)
 stuffing-app:
