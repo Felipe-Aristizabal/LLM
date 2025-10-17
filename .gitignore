@@ -208,4 +208,5 @@ __marimo__/
 
 
 # Local histroy for outputs
-.out/
+out/
+/src/tecnoquimicas_kb/data
