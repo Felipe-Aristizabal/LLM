@@ -5,17 +5,20 @@ Donaciones
 Crear una cuenta
 Acceder
 Herramientas personales
+	
+
+¡Participa del concurso Latinoamérica en Wikidata!
+Edita sobre música latinoamericana hasta el 15 de noviembre.
+
 Contenidos ocultar
 Inicio
-Introducción / resumen
 Historia
 Operaciones
 Alternar subsección Operaciones
 Plantas, capacidades y referencias de producto
 Portafolio de marcas
 Logística, alcance geográfico y redes de distribución
-Logos/Variaciones
-Portafolio
+Logotipos
 Referencias
 Enlaces externos
 Tecnoquímicas
@@ -40,21 +43,14 @@ Claro
 Oscuro
 Coordenadas: 3°27′12″N 76°31′19″O (mapa)
 	
-Posible contenido publicitario o promocional. El asunto o la redacción de este artículo o sección inducen a creer que debería ser borrado. Por favor, añade argumentos y referencias que permitan evaluar la relevancia del tema, revisa su redacción o edita el artículo, según corresponda. De no ser así, podría ser borrado en 30 días desde la colocación de este aviso. Por favor, no lo retires sin resolver el problema o consensuarlo previamente en la discusión. Puedes pedir ayuda en el programa de tutoría o preguntar en el Café. También puedes utilizar el asistente para la creación de artículos.
-Copia el siguiente código en la página de discusión del autor: {{subst:aviso promocional|Tecnoquímicas}} ~~~~
-	
-Artículo o sección sin relevancia enciclopédica aparente. El asunto o la redacción hacen pensar que debería borrarse. Por favor, añade argumentos o edita el artículo, basándote en referencias a fuentes fiables e independientes. De no ser así, podría ser borrado en 30 días desde la colocación de este aviso. Por favor, no lo retires sin resolver el problema o consensuarlo previamente en la discusión. Puedes pedir ayuda en el programa de tutoría o preguntar en el Café. También puedes utilizar el asistente para la creación de artículos. Este aviso fue puesto el 10 de octubre.
-Copia y pega el siguiente código en la página de discusión del autor: {{sust:aviso sin relevancia|Tecnoquímicas}} ~~~~
+Se está realizando una consulta de borrado para decidir qué hacer con este artículo. Puedes editarlo, pero no quites este mensaje. Los pasos del proceso de borrado se describen aquí. Si quieres participar en la argumentación, consulta los argumentos que evitar. Si quieres trasladarlo o fusionarlo, consulta la guía de borrado.
 Tecnoquímicas
-
-Logo actual
-
 Tipo	Sociedad anónima
 Industria	Farmacia, cuidado del hogar
 Fundación	17 de diciembre de 1934 (90 años)
 Fundador	Francisco Barberi
 Sede central	 Cali, Valle del Cauca,
-Área de operación	 Colombia
+Área	 Colombia
 Presidente	Francisco José Barberi (CEO)
 Productos	Multivitaminicos, desinfectantes, cuidado del hogar
 Activos	USD 646 millones [1]​
@@ -66,19 +62,15 @@ Lema	Confiable
 
 Tecnoquímicas S.A. (también conocida como Grupo TQ) es una empresa colombiana dedicada a la producción, comercialización y distribución de productos farmacéuticos, de consumo masivo y de cuidado personal, con operación en Colombia y otros países de América Latina. Sus actividades incluyen medicamentos (incluyendo genéricos), productos de higiene, cuidado del hogar, pañales y suplementos.[3]​
 
-Introducción / resumen[editar]
-
-Tecnoquímicas fue fundada en 1934 y ha crecido hasta convertirse en una de las compañías farmacéuticas más relevantes de Colombia. Participa también en mercados de consumo masivo como higiene, aseo y cuidado del bebé. En 2023 su portafolio representaba aproximadamente el 14 % del mercado farmacéutico colombiano. [4]​
-
-La sede principal está en Cali, Colombia, y cuenta con múltiples plantas productivas en Colombia y en Centroamérica, En su sitio institucional, Tecnoquímicas afirma tener más de 8.200 colaboradores y más de 4.000 referencias de productos fabricados. [5]​
+Fue fundada en 1934. Participa también en mercados de consumo masivo como higiene, aseo y cuidado del bebé. En 2023 su portafolio representaba aproximadamente el 14 % del mercado farmacéutico colombiano.[3]​ La sede principal está en Cali, Colombia, y cuenta con múltiples plantas productivas en Colombia y en Centroamérica, En su sitio institucional, Tecnoquímicas afirma tener más de 8200 colaboradores y más de 4000 referencias de productos fabricados. [4]​
 
 Historia[editar]
 
-Tecnoquímicas S.A. fue fundada el 17 de diciembre de 1934 en Bogotá bajo el nombre Colombia Sales Company, con el objetivo principal de importar y comercializar materias primas, productos medicinales y artículos de tocador de empresas nacionales y extranjeras.[6]​
+Tecnoquímicas S.A. fue fundada el 17 de diciembre de 1934 en Bogotá bajo el nombre Colombia Sales Company, con el objetivo principal de importar y comercializar materias primas, productos medicinales y artículos de tocador de empresas nacionales y extranjeras.[5]​
 
-En 1941, se vinculó a la empresa Francisco Antonio Barberi Zamorano, quien sería su principal impulsor durante medio siglo. Ese mismo año obtuvo la representación de Alka Seltzer®, producto que comercializó en Colombia hasta los años noventa.[6]​
-En la década de 1950, la empresa inició su apuesta por la producción farmacéutica con la creación de Laboratorios Fixalia. En 1951 se inauguró su primera planta en Cali, en el sitio que aún hoy alberga su sede principal.[6]​
-En 1954, la sede principal de la compañía se trasladó de Bogotá a Cali. Tres años después, en 1957, se constituyó legalmente la razón social Tecnoquímicas S.A., fruto de la fusión de Colombia Sales Company y Laboratorios Fixalia.[6]​
+En 1941, se vinculó a la empresa Francisco Antonio Barberi Zamorano, quien sería su principal impulsor durante medio siglo. Ese mismo año obtuvo la representación de Alka Seltzer®, producto que comercializó en Colombia hasta los años noventa.[5]​
+En la década de 1950, la empresa inició su apuesta por la producción farmacéutica con la creación de Laboratorios Fixalia. En 1951 se inauguró su primera planta en Cali, en el sitio que aún hoy alberga su sede principal.[5]​
+En 1954, la sede principal de la compañía se trasladó de Bogotá a Cali. Tres años después, en 1957, se constituyó legalmente la razón social Tecnoquímicas S.A., fruto de la fusión de Colombia Sales Company y Laboratorios Fixalia.[5]​
 Durante los años sesenta, Tecnoquímicas consolidó su capacidad de distribución y comenzó a desarrollar líneas propias, como la marca Mac Donald de Colombia (1958).
 En los setenta, incorporó tecnología extranjera, elaborando más del 60 % de los productos que distribuía.
 En 1981, la empresa ingresó al mercado de pañales desechables y adoptó la filosofía de calidad total. construyó su Centro Nacional de Distribución, obtuvo en 1982 la licencia de Allergan, y en 1986 adquirió la planta de Merck Sharp & Dohme en Colombia, considerada entonces la más moderna del país.
@@ -88,56 +80,37 @@ En los noventa, Tecnoquímicas inició su expansión internacional con presencia
 Posteriormente compró marcas nacionales como Noraver y Crema No. 4 (1995), fundó la planta Tecnosur para pañales (1996), y creó Adhinter para productos médicos. También adquirió Colbón (1999) y estableció alianzas con laboratorios internacionales como Yamanouchi (Japón) y el Centro de Ingeniería Genética de Cuba.
 En los años 2000, amplió su portafolio con marcas de Ely Lilly (2002), Merck & Co. (2003) y Tootsie Roll (2000). En 2005 inauguró la planta Tecnofar en Villa Rica (Cauca), y en 2006 alcanzó el liderazgo nacional en medicamentos genéricos (MK) y en pañales (Winny).
 Durante 2008, la IFC (Banco Mundial) invirtió USD 25 millones en la compañía para impulsar su expansión internacional. En 2009, TQ adquirió Teramed en El Salvador, consolidando su presencia directa en Centroamérica.
-En 2009, Tecnoquímicas avanzó hacia Centroamérica con la adquisición de Teramed, fortaleciendo su operación en países como El Salvador.[7]​
+En 2009, Tecnoquímicas avanzó hacia Centroamérica con la adquisición de Teramed, fortaleciendo su operación en países como El Salvador.[6]​
 Entre 2010 y 2016, la empresa fortaleció su liderazgo regional, lanzando productos innovadores (como Durafex, Vita C + Zinc MK y Genetest) y adquiriendo marcas como Hidraplus y Wasser Chemical. Se convirtió en el primer laboratorio del mercado farmacéutico comercial colombiano (2013) y recompró las acciones de la IFC (2014), recuperando el 100 % del control accionario.
 En 2015, inauguró en Villa Rica el complejo farmacéutico más moderno de Suramérica para productos estériles, con más de 14 000 m². En los años siguientes amplió su infraestructura (Laboratorio de Control de Calidad, 2016) y lanzó nuevas soluciones farmacogenéticas.
 En 2017, fue reconocida por América Economía entre las 100 multilatinas más relevantes. Ese año inauguró el Laboratorio de Innovación InTQ y obtuvo la certificación OEA.
 En 2018, compró a Bayer la corporación Bonima S.A. de C.V., convirtiéndose en titular único de la marca MK en Centroamérica, Caribe y Sudamérica (excepto Venezuela).
 En 2019, el presidente Iván Duque visitó las ampliaciones de las plantas Tecnosur, Tecnofar y Jamundí, con inversiones superiores a $480 000 millones COP. Ese mismo año inició la instalación de paneles solares para cubrir el 40 % de su consumo energético.
 Durante la pandemia de 2020, TQ mantuvo su operación continua y lanzó productos de higiene y desinfección como Alcohol Gel MK 70% y Toallitas Winny Antibacterial, adaptando sus líneas a las nuevas demandas de salud pública.
-En años más recientes, la empresa ha enfatizado la innovación, la investigación científica y el desarrollo de su portafolio de marcas propias, así como su presencia en múltiples países de América Latina y la producción de miles de referencias de productos.[5]​
+En años más recientes, la empresa ha enfatizado la innovación, la investigación científica y el desarrollo de su portafolio de marcas propias, así como su presencia en múltiples países de América Latina y la producción de miles de referencias de productos.[4]​
 Operaciones[editar]
 Plantas, capacidades y referencias de producto[editar]
 
-Tecnoquímicas opera varias plantas productivas en Colombia y Centroamérica. Según su sitio oficial, tiene ocho sedes productivas en Colombia y una en Centroamérica. Asimismo, asegura fabricar alrededor de 4.000 referencias distintas para toda la región. En el sector farmacéutico, su línea de genéricos MK tiene más de 1.450 referencias. Bitácora Farmacéutica.[5]​
+Tecnoquímicas opera varias plantas productivas en Colombia y Centroamérica. Según su sitio oficial, tiene ocho sedes productivas en Colombia y una en Centroamérica. Asimismo, asegura fabricar alrededor de 4000 referencias distintas para toda la región. En el sector farmacéutico, su línea de genéricos MK tiene más de 1450 referencias. Bitácora Farmacéutica.[4]​
 
-En el mercado de pañales, se ha reportado que la empresa alcanza cerca del 70 % del mercado colombiano para bebés con sus marcas Winny / Content. [8]​
+En el mercado de pañales, se ha reportado que la empresa alcanza cerca del 70 % del mercado colombiano para bebés con sus marcas Winny / Content. [7]​
 
 Portafolio de marcas[editar]
 
-Entre las marcas destacadas bajo el paraguas de Tecnoquímicas se encuentran: MK, Winny, Bonfiest, Yodora, Content, Sal de Frutas Lua, Noraver, Crema No. 4, Hidraplus, Ibuflash, Duraflex, entre otras. La empresa también participa en el mercado de productos de cuidado íntimo, cuidado personal y del hogar. [9]​[5]​
+Entre las marcas destacadas bajo el paraguas de Tecnoquímicas se encuentran: MK, Winny, Bonfiest, Yodora, Content, Sal de Frutas Lua, Noraver, Crema No. 4, Hidraplus, Ibuflash, Duraflex, entre otras. La empresa también participa en el mercado de productos de cuidado íntimo, cuidado personal y del hogar. [8]​[4]​
 
 Logística, alcance geográfico y redes de distribución[editar]
 
-Tecnoquímicas distribuye sus productos en diversas ciudades y municipios de Colombia, contando con fuerza de visita médica, red comercial y relaciones con distribuidores. Por ejemplo, en 2013 se reportaba atención a más de 725 municipios y más de 120.000 clientes directos. Además, exporta productos en Latinoamérica. Las líneas MK y otras marcas propias se comercializan en países como Ecuador, Perú, Bolivia y Centroamérica. [5]​
+Tecnoquímicas distribuye sus productos en diversas ciudades y municipios de Colombia, contando con fuerza de visita médica, red comercial y relaciones con distribuidores. Por ejemplo, en 2013 se reportaba atención a más de 725 municipios y más de 120.000 clientes directos. Además, exporta productos en Latinoamérica. Las líneas MK y otras marcas propias se comercializan en países como Ecuador, Perú, Bolivia y Centroamérica. [4]​
 
-Logos/Variaciones[editar]
-Logo 2008 - Presente
+Logotipos[editar]
 1957 - 2008
-
-
-
-
-Portafolio[editar]
-Lua más bonfiest
-Colbón
-Contenido
-Crema No. 4
-Cureband
-Gastrofast
-IbuFlash
-Medicamentos MK
-Noraver
-Sal de Frutas Luna
-Vita C MK
-Vitafull
-Winny
-Yodora
 Referencias[editar]
 ↑ «Asi cámbianos al mundo, Nuestra gente».
 ↑ «Tecnoquímicas, empresa líder en el sector farmacéutico en Colombia: ¿Cuál es la clave de su éxito?». Noticias Caracol. 30 de julio de 2023.
-↑ «“El portafolio de productos del Grupo TQ representa 14% del mercado farmacéutico"». La República. 20 de junio de 2023.
-↑ «Portal de noticias Colombiano».
+↑ 
+Saltar a:
+a b «“El portafolio de productos del Grupo TQ representa 14% del mercado farmacéutico"». La República. 20 de junio de 2023.
 ↑ 
 Saltar a:
 a b c d e «Tecnoquímicas - Quiénes Somos - Historia». www.tqconfiable.com. Consultado el 13 de octubre de 2025.
@@ -150,7 +123,7 @@ a b c d «Investigacion de Hector Ochoa Diaz».
 Enlaces externos[editar]
 Sitio web oficial
 Categorías: Empresas fundadas en 1934Empresas papeleras de ColombiaEmpresas farmacéuticas de Colombia
-Esta página se editó por última vez el 14 oct 2025 a las 17:40.
+Esta página se editó por última vez el 3 nov 2025 a las 08:39.
 El texto está disponible bajo la Licencia Creative Commons Atribución-CompartirIgual 4.0; pueden aplicarse cláusulas adicionales. Al usar este sitio aceptas nuestros términos de uso y nuestra política de privacidad.
 Wikipedia® es una marca registrada de la Fundación Wikimedia, una organización sin ánimo de lucro.
 Política de privacidad

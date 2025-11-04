@@ -24,7 +24,7 @@ with st.sidebar:
 
     st.header("Datos")
     data_dir = st.text_input(
-        "Directorio de chunks limpios", value="src/tecnoquimicas_kb/data/clean"
+        "Directorio de chunks limpios", value="src/tecnoquimicas_kb/data/clean/chunks"
     )
 
 if "docs" not in st.session_state:

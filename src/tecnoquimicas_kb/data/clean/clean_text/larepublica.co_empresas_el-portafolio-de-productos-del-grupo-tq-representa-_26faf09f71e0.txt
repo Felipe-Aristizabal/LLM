@@ -1,78 +1,78 @@
 TRM
-$ 3.877,07
--$ 25,09
--0,64 %
+$ 3.860,12
+-$ 10,30
+-0,27 %
 MSCI COLCAP
-1.894,61
--4,25
--0,22 %
+1.987,85
+-2,89
+-0,15 %
 PETRÓLEO WTI
-US$ 57,50
--US$ 1,14
--1,94 %
+US$ 60,99
+US$ 0,20
++0,33 %
 CAFÉ COLOMBIAN MILDS
-US$ 4,04
--US$ 0,04
--1,07 %
+US$ 3,99
+-US$ 0,02
+-0,38 %
 ORO COMPRA BANCO DE LA REPÚBLICA
 $ 367.840,96
 +$ 500,53
 +0,14 %
 TASA DE USURA CRÉDITO CONSUMO
-24,36 %
--0,65 %
--2,60 %
+24,99 %
++0,63 %
++2,59 %
 DTF
-8,67 %
--0,08 %
--0,91 %
+8,70 %
++0,07 %
++0,81 %
 UVR
-$ 395,08
+$ 395,78
 +$ 0,04
 +0,01 %
 BITCOIN
-US$ 107.886,00
--US$ 3.327,20
--2,99 %
+US$ 106.597,10
+-US$ 681,50
+-0,64 %
 TRM
-$ 3.877,07
--$ 25,09
--0,64 %
+$ 3.860,12
+-$ 10,30
+-0,27 %
 MSCI COLCAP
-1.894,61
--4,25
--0,22 %
+1.987,85
+-2,89
+-0,15 %
 PETRÓLEO WTI
-US$ 57,50
--US$ 1,14
--1,94 %
+US$ 60,99
+US$ 0,20
++0,33 %
 CAFÉ COLOMBIAN MILDS
-US$ 4,04
--US$ 0,04
--1,07 %
+US$ 3,99
+-US$ 0,02
+-0,38 %
 ORO COMPRA BANCO DE LA REPÚBLICA
 $ 367.840,96
 +$ 500,53
 +0,14 %
 TASA DE USURA CRÉDITO CONSUMO
-24,36 %
--0,65 %
--2,60 %
+24,99 %
++0,63 %
++2,59 %
 DTF
-8,67 %
--0,08 %
--0,91 %
+8,70 %
++0,07 %
++0,81 %
 UVR
-$ 395,08
+$ 395,78
 +$ 0,04
 +0,01 %
 BITCOIN
-US$ 107.886,00
--US$ 3.327,20
--2,99 %
+US$ 106.597,10
+-US$ 681,50
+-0,64 %
 VER MÁS
 SUSCRÍBASE
-VIERNES, 17 DE OCTUBRE DE 2025
+LUNES, 03 DE NOVIEMBRE DE 2025
 FINANZAS
 ECONOMÍA
 EMPRESAS
@@ -85,13 +85,13 @@ CAJA FUERTE
 INDICADORES
 INSIDE
 TEMAS DE CONVERSACIÓN
-Presupuesto General de la Nación 2026
-Carbón
-Comfama
-Petrobras
-Bancos
-Estados Unidos
-FED
+Supersociedades
+Desempleo
+Dane
+Inflación
+Tasa de Interés
+Reforma Tributaria
+Grupo Nutresa
 Dólar
 INICIO
 EMPRESAS
@@ -177,56 +177,56 @@ Next slide
 SUSCRÍBASE YA
 TENDENCIAS
 1
-Hacienda
-Los ganadores y los perdedores del Presupuesto General de la Nación para 2026
-2
 Bolsas
-El dólar se descuelga $85 por la preocupación inversionista en el comercio de EE.UU.
+Criptomonedas caen mientras liquidaciones de octubre repelen a compradores
+2
+EE.UU.
+Trump descarta acción militar en Venezuela, pero reitera que días de Maduro "están contados"
 3
 Hacienda
-Donald Trump muestra su poderío militar, mientras Maduro refuerza sus tropas
+El presidente Petro busca una mediación de Qatar para diálogos de paz e inversiones
 4
-Entretenimiento
-“Hoy abrimos la nueva tienda Lego, que representa la evolución de la marca”
+Hacienda
+El Gobierno Distrital de Bogotá ya radicó el presupuesto de 2026 por $40,4 billones
 5
-China
-El presidente Donald Trump dice que los aranceles de 100% a China no son sostenibles
+Automotor
+Renault negocia con automotrices como Chery tras su acuerdo con Geely en Brasil
 6
-Transporte
-Las protestas y los cierres totales de vías afectan a nueve departamentos de Colombia
+EE.UU.
+Microsoft firma contrato de US$9.700 millones con Iren para comprar chips de Nvidia
 MÁS DE EMPRESAS
-Marcas
-15/10/2025
-Bancolombia y Alpina lideran el ranking de las empresas con la mejor reputación
-El top 10 del ranking de este año presenta movimientos significativos en comparación con la medición del curso anterior
-Transporte
-15/10/2025
-En Colombia, Latam espera cerrar 2025 con participación de mercado de 30%
-Érika Zarante, CEO de Latam para Colombia, habló de la importancia del acuerdo con Embraer para sumar más aviones a la flotilla de la aerolínea en la región
+Contenido patrocinado
+31/10/2025
+Centro Comercial Jardín Plaza Cali: 20 años creciendo en el suroccidente colombiano
+Con más de 18 millones de visitantes al año, Jardín Plaza se consolida como motor de desarrollo en Cal
 Energía
-14/10/2025
-“Debería haber más de dos o tres plantas de regasificación en países como Colombia”
-El gerente general de TGI, Jorge Henao, dijo que con el proyecto Ballena no habría desabastecimiento de gas y que su intención no es competir con la planta en Coveñas
+31/10/2025
+Este año los populares alumbrados de EPM llegarán a 15 municipios de Antioquia
+Temáticas de naturaleza y artículos tradicionalmente asociados a la temporada, harán parte de las piezas que podrán disfrutarse este año
+Energía
+31/10/2025
+Miguel Godoy, director de Operaciones Vías de ISA, finalizó período de expatriación
+En su remplazo llega Alejandro Jorge Bennewitz Martínez, quien es actualmente el director de Ingeniería y Proyectos Viales; y estará de manera temporal como director de Operaciones Vías
 MÁS EMPRESAS
 MÁS DE LA REPÚBLICA
-Automotor
-17/10/2025
-Nexperia suspendió envío de componentes tras intervención del gobierno neerlandés
+China
+03/11/2025
+Donald Trump confirmó que China conoce los riesgos de cualquier ataque a Taiwán
+Industria
+02/11/2025
+Unión Sindical Obrera aseguró que no apoya la venta de Permian de Ecopetrol
+Turismo
+02/11/2025
+Manizales, una de las ciudades más acogedoras del mundo
+Bolsas
+03/11/2025
+Criptomonedas caen mientras liquidaciones de octubre repelen a compradores
 Judicial
-15/10/2025
-Ya hay fecha para conocer la sentencia en segunda instancia del expresidente Uribe
-Hacienda
-16/10/2025
-Presupuesto General de 2026 irá por $549,6 billones tras la aprobación en segundo debate
-Bolsas
-16/10/2025
-El dólar cerró la jornada $25 por debajo de TRM en las tensiones entre EE.UU. y China
-Cultura
-15/10/2025
-#HaciaAsia | Dónde tomarse un café en los rincones más icónicos de Asia
-Bolsas
-17/10/2025
-Sáquele provecho al rally de los commodities a través de estos tipos de inversiones
+02/11/2025
+Armando Bendetti realizó una denuncia por supuesto actor criminal en contra suya
+Industria
+02/11/2025
+Amazon y Temu están cabeza a cabeza en visitas del ecommerce
 © 2025, Editorial La República S.A.S. Todos los derechos reservados.
 Cr. 13a 37-32, Bogotá
 (+57) 1 4227600

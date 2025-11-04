@@ -1,31 +1,31 @@
 title: TQ (Tecnoquímicas) | LinkedIn
 
-description: TQ (Tecnoquímicas) | 303.864 seguidores en LinkedIn. Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
+description: TQ (Tecnoquímicas) | 305.349 seguidores en LinkedIn. Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
 
 Nos mueve la confianza en un mejor futuro, aquel que nace de la salud y el bienestar de las personas.
 
 og:title: TQ (Tecnoquímicas) | LinkedIn
 
-og:description: TQ (Tecnoquímicas) | 303.864 seguidores en LinkedIn. Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
+og:description: TQ (Tecnoquímicas) | 305.349 seguidores en LinkedIn. Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
 
 Nos mueve la confianza en un mejor futuro, aquel que nace de la salud y el bienestar de las personas.
 
 twitter:title: TQ (Tecnoquímicas) | LinkedIn
 
-twitter:description: TQ (Tecnoquímicas) | 303.864 seguidores en LinkedIn. Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
+twitter:description: TQ (Tecnoquímicas) | 305.349 seguidores en LinkedIn. Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
 
 Nos mueve la confianza en un mejor futuro, aquel que nace de la salud y el bienestar de las personas.
 
 ldjson:
-{"@context":"http://schema.org","@graph":[{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-02T17:15:01.020Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_somostq-tq90a%C3%B1os-activity-7379564577866547200-Xe5W","text":"El riguroso trabajo de nuestro equipo es el reflejo del compromiso de TQ con la salud y bienestar de las personas. 💙\n\n#SomosTQ #TQ90Años","url":"https://es.linkedin.com/posts/tqconfiable_somostq-tq90a%C3%B1os-activity-7379564577866547200-Xe5W"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-26T19:45:08.701Z","headline":"","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_d%C3%ADadelqu%C3%ADmicofarmac%C3%A9utico-somostq-tq90a%C3%B1os-activity-7377428031612809217-4DIU","text":"En TQ reconocemos a quienes, con ciencia y disciplina hacen posible que cada fórmula sea sinónimo de confianza y calidad. 💙Es motivo de orgullo para TQ contar con un equipo de Químicos Farmacéuticos comprometidos con la excelencia científica, el cumplimiento de los más altos estándares de calidad y la innovación constante para cuidar de la salud y bienestar de las personas.\n\n#DíaDelQuímicoFarmacéutico #SomosTQ #TQ90Años","url":"https://es.linkedin.com/posts/tqconfiable_d%C3%ADadelqu%C3%ADmicofarmac%C3%A9utico-somostq-tq90a%C3%B1os-activity-7377428031612809217-4DIU"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-24T16:46:43.697Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_en-tq-reconocemos-a-nuestros-qu%C3%ADmicos-farmac%C3%A9uticos-activity-7376658355919941632-v9Yt","text":"En TQ reconocemos a nuestros Químicos Farmacéuticos. Profesionales que hacen posible el desarrollo, la innovación, la calidad y la confianza en cada uno de nuestros productos.​ 👨🏻‍🔬👩🏻‍🔬","url":"https://es.linkedin.com/posts/tqconfiable_en-tq-reconocemos-a-nuestros-qu%C3%ADmicos-farmac%C3%A9uticos-activity-7376658355919941632-v9Yt"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-20T13:29:20.583Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_somostq-educaci%C3%B3n-activity-7375159130807758848-QtCq","text":"En TQ, creemos que la educación es una herramienta poderosa que abre puertas a nuevas oportunidades, por eso estamos viviendo una semana especial dedicada a la educación 📚.\n\nTuvimos la oportunidad de escuchar de la voz de Lucas Bravo Reyes , fundador y director de Educambio, una historia de compromiso con la transformación social sostenible a través de oportunidades de educación de calidad para niños, niñas y jóvenes en contextos de vulnerabilidad en Colombia. \n\nCuéntanos con una reacción:\n👍 Si crees que la educación abre puertas a nuevas oportunidades\n👏 Si celebras el aprendizaje constante\n💡 Si la educación te inspira a seguir creciendo\n\n#SomosTQ #Educación","url":"https://es.linkedin.com/posts/tqconfiable_somostq-educaci%C3%B3n-activity-7375159130807758848-QtCq"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-17T00:07:24.143Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_sabemos-que-una-vez-inicia-la-vida-laboral-activity-7373870152242872320-HgHY","text":"Sabemos que una vez inicia la vida laboral, dar el primer paso para seguir estudiando y formándose, es una de las decisiones más difíciles; sin embargo, en TQ creemos que es una decisión poderosa para la vida personal y profesional. 🚀📚\n","url":"https://es.linkedin.com/posts/tqconfiable_sabemos-que-una-vez-inicia-la-vida-laboral-activity-7373870152242872320-HgHY"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-08-26T15:07:24.255Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_content-un-compromiso-con-el-cuidado-y-el-activity-7366124112026501121-B0CG","text":"En TQ trabajamos con el firme propósito de aportar al bienestar y a la salud de las personas en cada etapa de sus vidas.\n\nCon nuestra marca, Content, hemos desarrollado soluciones que aportan al cuidado del adulto y reconocen la labor de quienes los acompañan.\n\nConoce más de nuestra marca aquí 👇\nhttps://lnkd.in/ep4njWXX","url":"https://es.linkedin.com/posts/tqconfiable_content-un-compromiso-con-el-cuidado-y-el-activity-7366124112026501121-B0CG"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-08-08T20:23:23.362Z","headline":"","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_semanadelalactancia-nacertq-somostq-activity-7359680650750119937-jQ90","text":"En TQ, cuidar la vida y el bienestar de las personas hace parte de nuestro compromiso diario.​\n\nPor eso, brindamos múltiples beneficios a nuestros colaboradores, como Nacer TQ, un programa de atención y cuidado integral que acompaña la llegada de un nuevo miembro a la familia. En este camino, nuestras marcas Winny, Crema No. 4 y MK hacen parte de esos primeros días llenos de momentos únicos que quedarán para siempre en la memoria.\n\nComenta con un💙si también crees que todo cuidado empieza desde el primer latido.\n\n#SemanaDeLaLactancia #NacerTQ #SomosTQ #TQ90años","url":"https://es.linkedin.com/posts/tqconfiable_semanadelalactancia-nacertq-somostq-activity-7359680650750119937-jQ90"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-08-07T14:15:01.235Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_en-tq-creemos-en-el-poder-de-la-educaci%C3%B3n-activity-7359225559823880195-kZLp","text":"En TQ creemos en el poder de la educación desde la primera infancia, etapa en la que se construyen las bases del aprendizaje, el pensamiento crítico y la formación de seres íntegros.​\n​\nPor eso, celebramos con orgullo el grado de nuestros niños del CED: un momento lleno de alegría y satisfacción que marca el inicio de grandes sueños y trayectorias de vida. 🌱📚","url":"https://es.linkedin.com/posts/tqconfiable_en-tq-creemos-en-el-poder-de-la-educaci%C3%B3n-activity-7359225559823880195-kZLp"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-08-06T16:24:50.603Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_en-tq-acompa%C3%B1amos-a-nuestras-colaboradoras-activity-7358895842977619969-gu4p","text":"En TQ, acompañamos a nuestras colaboradoras desde el primer momento de su embarazo. Contamos con beneficios diseñados para cada etapa: durante la gestación, en los primeros meses del bebé y en los años clave de su desarrollo.","url":"https://es.linkedin.com/posts/tqconfiable_en-tq-acompa%C3%B1amos-a-nuestras-colaboradoras-activity-7358895842977619969-gu4p"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-07-30T16:30:06.182Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_somostq-internacionalizaci%C3%B3n-activity-7356360451519094784-MYi7","text":"Gracias a décadas de innovación, calidad y compromiso, hoy TQ llega a más de 20 países de América.\nNuestra presencia internacional no solo se mide en mapas, sino en vidas impactadas. 💙🌎\n#SomosTQ #Internacionalización","url":"https://es.linkedin.com/posts/tqconfiable_somostq-internacionalizaci%C3%B3n-activity-7356360451519094784-MYi7"},{"@context":"http://schema.org","@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable","address":{"type":"PostalAddress","streetAddress":"Calle 23 # 7 - 39","addressLocality":"Cali","addressRegion":"Valle del Cauca","postalCode":"760044","addressCountry":"CO"},"description":"Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.\n\nNos mueve la confianza en un mejor futuro, aquel que nace de la salud y el bienestar de las personas. Cuidando la vida aportamos al futuro de todo un país.\nContamos con un amplio portafolio de productos totalmente confiables. Tenemos marcas reconocidas como, MK, Winny, Content, Bonfiest, Sal de Frutas Lua, Gastrofast, Noraver, Ibuflash, Duraflex, Biocalcium, Vita C, Crema No. 4, Hidraplus, Yodora, Cure Band, Colbón, entre otras\n\nUn grupo humano vital de más de 8.700 colaboradores en Colombia, Ecuador, El Salvador, Guatemala, Honduras, Panamá, Nicaragua y República Dominicana.\n\nTe invitamos a ser parte de nuestra  familia TQ, para que crezcas con nosotros y nos ayudes a llevarles salud y bienestar a más personas en más países. TQ, Totalmente Confiable. \n\n#GrupoTQ\n#TQTotalmenteConfiable\n#Tecnoquímicas","numberOfEmployees":{"value":4225,"@type":"QuantitativeValue"},"logo":{"contentUrl":"https://media.licdn.com/dms/image/v2/D560BAQGUvdKCjcJfnA/company-logo_200_200/company-logo_200_200/0/1702418421606/tqconfiable_logo?e=2147483647&v=beta&t=iRlAFXfquR4VswlsWA9XPGSqe1Xqp_Wx1HyDInMxQSg","description":"TQ (Tecnoquímicas)","@type":"ImageObject"},"sameAs":"https://www.tqconfiable.com/"}]}
+{"@context":"http://schema.org","@graph":[{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-30T23:30:01.935Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_el-libro-que-describe-los-retos-que-dej%C3%B3-activity-7389805813793492992-gGQ1","text":"Es motivo de orgullo para TQ presentar la obra académica COVID-19: Historia y desafíos médicos de una pandemia, en el marco de nuestro compromiso con el apoyo a la investigación, la educación y la difusión del conocimiento en el campo de las Ciencias de la Salud y de la Vida.\n \nSu contenido reafirma nuestra confianza en la capacidad humana para superar los desafíos con firmeza y en la convicción de trabajar juntos para contribuir a un futuro más saludable.\n\nLa publicación cuenta con 20.000 ejemplares publicados que serán donados en su totalidad a universidades, centros de investigación, instituciones académicas, bibliotecas y profesionales de la salud tanto en Colombia como en el exterior. 📚\n\nTe invitamos a conocer más sobre esta obra aquí: https://lnkd.in/eFAYvtHX\n\n#LibroCOVID19 #SomosTQ #Investigación #TQ90Años","url":"https://es.linkedin.com/posts/tqconfiable_el-libro-que-describe-los-retos-que-dej%C3%B3-activity-7389805813793492992-gGQ1"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-27T19:58:46.999Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_representante-de-ventas-mixto-activity-7388665487666122752-nmnQ","text":"¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en seleccion.tqconfiable.com y envía tu hoja de vida al correo 👉 gacanchila@TQgrupo.com  \n \n¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la oferta laboral.  \n  \n📆Fecha límite de postulación: 20/12/2025. ","url":"https://es.linkedin.com/posts/tqconfiable_representante-de-ventas-mixto-activity-7388665487666122752-nmnQ"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-21T17:15:18.942Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_tecnoqu%C3%ADmicas-se-uni%C3%B3-a-vamos-palante-con-activity-7386450022499975168-6y3w","text":"En TQ reafirmamos nuestro compromiso con la educación como motor de equidad, desarrollo y transformación social. 💙\n\nEste año nos unimos nuevamente a la campaña “Vamos Pa’lante”, a través de la Universidad Icesi, con una donación de 300 millones de pesos, que permitirá apoyar a estudiantes en riesgo de deserción para que culminen sus estudios de forma exitosa. 🎓\n\nEste apoyo se suma a los múltiples programas de becas que TQ ha implementado en alianza con la Universidad Icesi durante varias décadas. Gracias a estos programas, solo en los últimos tres años más de 3.600 jóvenes de estratos 1, 2 y 3 han podido cumplir su sueño de formarse profesionalmente y acceder a una educación de alta calidad.\n\n👉 Conoce más aquí: https://lnkd.in/en2Y6Fpj","url":"https://es.linkedin.com/posts/tqconfiable_tecnoqu%C3%ADmicas-se-uni%C3%B3-a-vamos-palante-con-activity-7386450022499975168-6y3w"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-21T14:57:29.571Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_filbocali-filbo-somostq-activity-7386415338478911488-gXUY","text":"En TQ, creemos que la educación y el bienestar van de la mano. 💙 \n\nSeguimos siendo parte de la Feria del Libro de Cali creando un espacio donde las ideas, la lectura y el conocimiento se convirtieron en los verdaderos protagonistas. 📚\nReconociendo siempre que la cultura y la lectura hacen parte de una formación integral y es vital para el aprendizaje y el mejoramiento continuo. \n\n#FILBOCali #FILBO #SomosTQ #TQ90Años","url":"https://es.linkedin.com/posts/tqconfiable_filbocali-filbo-somostq-activity-7386415338478911488-gXUY"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-20T21:06:52.921Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_en-tq-creemos-que-la-lectura-no-solo-enriquece-activity-7386145910172467201-n-wh","text":"En TQ creemos que la lectura no solo enriquece el conocimiento, sino que también fortalece habilidades clave para la vida y el trabajo, como la concentración, la creatividad, la comunicación y la empatía. 📖 ","url":"https://es.linkedin.com/posts/tqconfiable_en-tq-creemos-que-la-lectura-no-solo-enriquece-activity-7386145910172467201-n-wh"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-10-02T17:15:01.020Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_somostq-tq90a%C3%B1os-activity-7379564577866547200-Xe5W","text":"El riguroso trabajo de nuestro equipo es el reflejo del compromiso de TQ con la salud y bienestar de las personas. 💙\n\n#SomosTQ #TQ90Años","url":"https://es.linkedin.com/posts/tqconfiable_somostq-tq90a%C3%B1os-activity-7379564577866547200-Xe5W"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-26T19:45:08.701Z","headline":"","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_d%C3%ADadelqu%C3%ADmicofarmac%C3%A9utico-somostq-tq90a%C3%B1os-activity-7377428031612809217-4DIU","text":"En TQ reconocemos a quienes, con ciencia y disciplina hacen posible que cada fórmula sea sinónimo de confianza y calidad. 💙Es motivo de orgullo para TQ contar con un equipo de Químicos Farmacéuticos comprometidos con la excelencia científica, el cumplimiento de los más altos estándares de calidad y la innovación constante para cuidar de la salud y bienestar de las personas.\n\n#DíaDelQuímicoFarmacéutico #SomosTQ #TQ90Años","url":"https://es.linkedin.com/posts/tqconfiable_d%C3%ADadelqu%C3%ADmicofarmac%C3%A9utico-somostq-tq90a%C3%B1os-activity-7377428031612809217-4DIU"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-24T16:46:43.697Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_en-tq-reconocemos-a-nuestros-qu%C3%ADmicos-farmac%C3%A9uticos-activity-7376658355919941632-v9Yt","text":"En TQ reconocemos a nuestros Químicos Farmacéuticos. Profesionales que hacen posible el desarrollo, la innovación, la calidad y la confianza en cada uno de nuestros productos.​ 👨🏻‍🔬👩🏻‍🔬","url":"https://es.linkedin.com/posts/tqconfiable_en-tq-reconocemos-a-nuestros-qu%C3%ADmicos-farmac%C3%A9uticos-activity-7376658355919941632-v9Yt"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-20T13:29:20.583Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_somostq-educaci%C3%B3n-activity-7375159130807758848-QtCq","text":"En TQ, creemos que la educación es una herramienta poderosa que abre puertas a nuevas oportunidades, por eso estamos viviendo una semana especial dedicada a la educación 📚.\n\nTuvimos la oportunidad de escuchar de la voz de Lucas Bravo Reyes , fundador y director de Educambio, una historia de compromiso con la transformación social sostenible a través de oportunidades de educación de calidad para niños, niñas y jóvenes en contextos de vulnerabilidad en Colombia. \n\nCuéntanos con una reacción:\n👍 Si crees que la educación abre puertas a nuevas oportunidades\n👏 Si celebras el aprendizaje constante\n💡 Si la educación te inspira a seguir creciendo\n\n#SomosTQ #Educación","url":"https://es.linkedin.com/posts/tqconfiable_somostq-educaci%C3%B3n-activity-7375159130807758848-QtCq"},{"@context":"http://schema.org","@type":"DiscussionForumPosting","author":{"@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable"},"datePublished":"2025-09-17T00:07:24.143Z","mainEntityOfPage":"https://es.linkedin.com/posts/tqconfiable_sabemos-que-una-vez-inicia-la-vida-laboral-activity-7373870152242872320-HgHY","text":"Sabemos que una vez inicia la vida laboral, dar el primer paso para seguir estudiando y formándose, es una de las decisiones más difíciles; sin embargo, en TQ creemos que es una decisión poderosa para la vida personal y profesional. 🚀📚\n","url":"https://es.linkedin.com/posts/tqconfiable_sabemos-que-una-vez-inicia-la-vida-laboral-activity-7373870152242872320-HgHY"},{"@context":"http://schema.org","@type":"Organization","name":"TQ (Tecnoquímicas)","url":"https://co.linkedin.com/company/tqconfiable","address":{"type":"PostalAddress","streetAddress":"Calle 23 # 7 - 39","addressLocality":"Cali","addressRegion":"Valle del Cauca","postalCode":"760044","addressCountry":"CO"},"description":"Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.\n\nNos mueve la confianza en un mejor futuro, aquel que nace de la salud y el bienestar de las personas. Cuidando la vida aportamos al futuro de todo un país.\nContamos con un amplio portafolio de productos totalmente confiables. Tenemos marcas reconocidas como, MK, Winny, Content, Bonfiest, Sal de Frutas Lua, Gastrofast, Noraver, Ibuflash, Duraflex, Biocalcium, Vita C, Crema No. 4, Hidraplus, Yodora, Cure Band, Colbón, entre otras\n\nUn grupo humano vital de más de 8.700 colaboradores en Colombia, Ecuador, El Salvador, Guatemala, Honduras, Panamá, Nicaragua y República Dominicana.\n\nTe invitamos a ser parte de nuestra  familia TQ, para que crezcas con nosotros y nos ayudes a llevarles salud y bienestar a más personas en más países. TQ, Totalmente Confiable. \n\n#GrupoTQ\n#TQTotalmenteConfiable\n#Tecnoquímicas","numberOfEmployees":{"value":4205,"@type":"QuantitativeValue"},"logo":{"contentUrl":"https://media.licdn.com/dms/image/v2/D560BAQGUvdKCjcJfnA/company-logo_200_200/company-logo_200_200/0/1702418421606/tqconfiable_logo?e=2147483647&v=beta&t=iRlAFXfquR4VswlsWA9XPGSqe1Xqp_Wx1HyDInMxQSg","description":"TQ (Tecnoquímicas)","@type":"ImageObject"},"sameAs":"https://www.tqconfiable.com/"}]}
 
 texto_visible:
 TQ (Tecnoquímicas)
 Fabricación de productos farmacéuticos
 Cali, Valle del Cauca
-303.864 seguidores
+305.349 seguidores
 Seguir
-Ver los 4225 empleados
+Ver los 4205 empleados
 Denunciar esta empresa
 Sobre nosotros
 Somos Grupo TQ. Líderes en mercados farmacéuticos y de consumo masivo.
@@ -65,20 +65,99 @@ Director Ejecutivo | Desarrollo de Negocios | Equity & Estrategia | Mercadeo & R
 Ver todos los empleados
 Actualizaciones
 TQ (Tecnoquímicas)
-303.864 seguidores
-2 semanas
+305.349 seguidores
+4 días
 Denunciar esta publicación
-El riguroso trabajo de nuestro equipo es el reflejo del compromiso de TQ con la salud y bienestar de las personas. 💙
+Es motivo de orgullo para TQ presentar la obra académica COVID-19: Historia y desafíos médicos de una pandemia, en el marco de nuestro compromiso con el apoyo a la investigación, la educación y la difusión del conocimiento en el campo de las Ciencias de la Salud y de la Vida.
+Su contenido reafirma nuestra confianza en la capacidad humana para superar los desafíos con firmeza y en la convicción de trabajar juntos para contribuir a un futuro más saludable.
+La publicación cuenta con 20.000 ejemplares publicados que serán donados en su totalidad a universidades, centros de investigación, instituciones académicas, bibliotecas y profesionales de la salud tanto en Colombia como en el exterior. 📚
+Te invitamos a conocer más sobre esta obra aquí:
+https://lnkd.in/eFAYvtHX
+#LibroCOVID19
 #SomosTQ
+#Investigación
 #TQ90Años
-150
+El libro que describe los retos que dejó el covid-19 que publicó Grupo Tecnoquímicas
+larepublica.co
+54
+Recomendar
+Comentar
+Compartir
+TQ (Tecnoquímicas)
+305.349 seguidores
+1 semana
+Denunciar esta publicación
+¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
+seleccion.tqconfiable.com
+y envía tu hoja de vida al correo 👉
+gacanchila@TQgrupo.com
+¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la oferta laboral.
+📆Fecha límite de postulación: 20/12/2025.
+106
 5 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
+1 semana
+Editado
+Denunciar esta publicación
+En TQ reafirmamos nuestro compromiso con la educación como motor de equidad, desarrollo y transformación social. 💙
+Este año nos unimos nuevamente a la campaña “Vamos Pa’lante”, a través de la Universidad Icesi, con una donación de 300 millones de pesos, que permitirá apoyar a estudiantes en riesgo de deserción para que culminen sus estudios de forma exitosa. 🎓
+Este apoyo se suma a los múltiples programas de becas que TQ ha implementado en alianza con la Universidad Icesi durante varias décadas. Gracias a estos programas, solo en los últimos tres años más de 3.600 jóvenes de estratos 1, 2 y 3 han podido cumplir su sueño de formarse profesionalmente y acceder a una educación de alta calidad.
+👉 Conoce más aquí:
+https://lnkd.in/en2Y6Fpj
+Tecnoquímicas se unió a Vamos Pa’Lante con millonario aporte para jóvenes estudiantes
+wradio.com.co
+59
+2 comentarios
+Recomendar
+Comentar
+Compartir
+TQ (Tecnoquímicas)
+305.349 seguidores
+1 semana
+Editado
+Denunciar esta publicación
+En TQ, creemos que la educación y el bienestar van de la mano. 💙
+Seguimos siendo parte de la Feria del Libro de Cali creando un espacio donde las ideas, la lectura y el conocimiento se convirtieron en los verdaderos protagonistas. 📚
+Reconociendo siempre que la cultura y la lectura hacen parte de una formación integral y es vital para el aprendizaje y el mejoramiento continuo.
+#FILBOCali
+#FILBO
+#SomosTQ
+#TQ90Años
+60
+Recomendar
+Comentar
+Compartir
+TQ (Tecnoquímicas)
+305.349 seguidores
 2 semanas
+Denunciar esta publicación
+En TQ creemos que la lectura no solo enriquece el conocimiento, sino que también fortalece habilidades clave para la vida y el trabajo, como la concentración, la creatividad, la comunicación y la empatía. 📖
+El contenido no está disponible aquí
+Accede a este contenido y mucho más en la aplicación de LinkedIn
+29
+4 comentarios
+Recomendar
+Comentar
+Compartir
+TQ (Tecnoquímicas)
+305.349 seguidores
+1 mes
+Denunciar esta publicación
+El riguroso trabajo de nuestro equipo es el reflejo del compromiso de TQ con la salud y bienestar de las personas. 💙
+#SomosTQ
+#TQ90Años
+163
+5 comentarios
+Recomendar
+Comentar
+Compartir
+TQ (Tecnoquímicas)
+305.349 seguidores
+1 mes
 Denunciar esta publicación
 En TQ reconocemos a quienes, con ciencia y disciplina hacen posible que cada fórmula sea sinónimo de confianza y calidad. 💙Es motivo de orgullo para TQ contar con un equipo de Químicos Farmacéuticos comprometidos con la excelencia científica, el cumplimiento de los más altos estándares de calidad y la innovación constante para cuidar de la salud y bienestar de las personas.
 #DíaDelQuímicoFarmacéutico
@@ -86,7 +165,7 @@ En TQ reconocemos a quienes, con ciencia y disciplina hacen posible que cada fó
 #TQ90Años
 Video Player is loading.
 Loaded
-9.35%
+7.03%
 0:00
 Stream Type
 LIVE
@@ -95,26 +174,26 @@ Current Time
 Duration
 0:51
 1x
-167
+175
 2 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-3 semanas
+305.349 seguidores
+1 mes
 Editado
 Denunciar esta publicación
 En TQ reconocemos a nuestros Químicos Farmacéuticos. Profesionales que hacen posible el desarrollo, la innovación, la calidad y la confianza en cada uno de nuestros productos. 👨🏻🔬👩🏻🔬
 El contenido no está disponible aquí
 Accede a este contenido y mucho más en la aplicación de LinkedIn
-48
+52
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-3 semanas
+305.349 seguidores
+1 mes
 Editado
 Denunciar esta publicación
 En TQ, creemos que la educación es una herramienta poderosa que abre puertas a nuevas oportunidades, por eso estamos viviendo una semana especial dedicada a la educación 📚.
@@ -129,26 +208,26 @@ Cuéntanos con una reacción:
 💡 Si la educación te inspira a seguir creciendo
 #SomosTQ
 #Educación
-118
+121
 6 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 1 mes
 Denunciar esta publicación
 Sabemos que una vez inicia la vida laboral, dar el primer paso para seguir estudiando y formándose, es una de las decisiones más difíciles; sin embargo, en TQ creemos que es una decisión poderosa para la vida personal y profesional. 🚀📚
 El contenido no está disponible aquí
 Accede a este contenido y mucho más en la aplicación de LinkedIn
-61
+62
 12 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-1 mes
+305.349 seguidores
+2 meses
 Denunciar esta publicación
 En TQ trabajamos con el firme propósito de aportar al bienestar y a la salud de las personas en cada etapa de sus vidas.
 Con nuestra marca, Content, hemos desarrollado soluciones que aportan al cuidado del adulto y reconocen la labor de quienes los acompañan.
@@ -162,7 +241,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 2 meses
 Denunciar esta publicación
 En TQ, cuidar la vida y el bienestar de las personas hace parte de nuestro compromiso diario.
@@ -174,7 +253,7 @@ Comenta con un💙si también crees que todo cuidado empieza desde el primer lat
 #TQ90años
 Video Player is loading.
 Loaded
-0.00%
+2.10%
 0:00
 Stream Type
 LIVE
@@ -189,7 +268,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 2 meses
 Denunciar esta publicación
 En TQ creemos en el poder de la educación desde la primera infancia, etapa en la que se construyen las bases del aprendizaje, el pensamiento crítico y la formación de seres íntegros.
@@ -200,7 +279,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 2 meses
 Denunciar esta publicación
 En TQ, acompañamos a nuestras colaboradoras desde el primer momento de su embarazo. Contamos con beneficios diseñados para cada etapa: durante la gestación, en los primeros meses del bebé y en los años clave de su desarrollo.
@@ -212,8 +291,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-2 meses
+305.349 seguidores
+3 meses
 Denunciar esta publicación
 Gracias a décadas de innovación, calidad y compromiso, hoy TQ llega a más de 20 países de América.
 Nuestra presencia internacional no solo se mide en mapas, sino en vidas impactadas. 💙🌎
@@ -225,8 +304,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-2 meses
+305.349 seguidores
+3 meses
 Denunciar esta publicación
 El proceso de internacionalización no es solo expandirse. Es entender nuevas culturas, sostener la excelencia operativa y mantener intacta la promesa de valor. 🌎
 En TQ, recorremos este camino con el compromiso de llevar salud y bienestar a más personas.
@@ -238,8 +317,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-2 meses
+305.349 seguidores
+3 meses
 Editado
 Denunciar esta publicación
 Francisco José Barberi, presidente del Grupo TQ, mencionó los avances, apuestas y perspectivas de TQ para el cierre de 2025 y los próximos años para el Diario El País.
@@ -249,13 +328,13 @@ Te invitamos a conocer la entrevista completa aquí 👇
 https://lnkd.in/eJ2krHPm
 “Nuestro compromiso es con el empleo”; Presidente de TQ hace balance del 2025
 surl.li
-352
+353
 18 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 3 meses
 Editado
 Denunciar esta publicación
@@ -288,7 +367,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 3 meses
 Denunciar esta publicación
 En TQ, creemos que la
@@ -300,7 +379,7 @@ Mantente al tanto de nuestras redes para conocer los aprendizajes de esta semana
 #SomosTQ
 Video Player is loading.
 Loaded
-1.91%
+7.68%
 0:00
 Stream Type
 LIVE
@@ -309,27 +388,27 @@ Current Time
 Duration
 0:38
 1x
-174
+176
 7 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-3 meses
+305.349 seguidores
+4 meses
 Denunciar esta publicación
 En TQ, creemos que la educación es una herramienta poderosa para la transformación social. Por eso, impulsamos el desarrollo profesional de nuestros colaboradores a través de programas educativos en alianza con instituciones de alta calidad académica.
 ¿Te interesa conocer más sobre estos programas? ¡Cuéntanos en los comentarios!
 #Educación
 #SomosTQ
-86
+87
 9 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-3 meses
+305.349 seguidores
+4 meses
 Denunciar esta publicación
 El contenido no está disponible aquí
 Accede a este contenido y mucho más en la aplicación de LinkedIn
@@ -339,7 +418,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 4 meses
 Denunciar esta publicación
 En TQ, cada año realizamos jornadas de donación de sangre en las que nuestros colaboradores se suman a esta valiosa causa. Así, reafirmamos nuestro compromiso con el cuidado de la vida y la salud de miles de personas.💙
@@ -353,7 +432,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 4 meses
 Denunciar esta publicación
 Conoce la historia de Mauricio en TQ: una trayectoria de 30 años marcada por el compromiso, la disciplina y los valores que lo han impulsado a crecer profesionalmente e inspirar también en su rol como padre.
@@ -364,7 +443,7 @@ Conoce la historia de Mauricio en TQ: una trayectoria de 30 años marcada por el
 #RetosProfesionales
 Video Player is loading.
 Loaded
-5.54%
+1.67%
 0:00
 Stream Type
 LIVE
@@ -379,7 +458,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 4 meses
 Denunciar esta publicación
 En TQ estamos comprometidos con el acceso de jóvenes talentosos a una educación de alta calidad como herramienta eficaz de transformación social y desarrollo sostenible en nuestro país.
@@ -404,13 +483,13 @@ En
 #Icesi
 estamos obsesionados con atraer a los mejores estudiantes del país, independientemente de su capacidad economía.
 #LlegamásLejos
-241
+242
 2 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 4 meses
 Denunciar esta publicación
 En TQ estamos comprometidos con el acceso de jóvenes talentosos a una educación de alta calidad como herramienta eficaz de transformación social y desarrollo sostenible en nuestro país.
@@ -441,8 +520,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-4 meses
+305.349 seguidores
+5 meses
 Denunciar esta publicación
 En TQ, evaluamos constantemente el impacto ambiental de nuestra operación, con acciones concretas que suman a nuestra gestión ambiental.🌱
 Hoy compartimos algunos de los indicadores que reflejan ese esfuerzo y construyen un mejor futuro.
@@ -454,8 +533,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-4 meses
+305.349 seguidores
+5 meses
 Denunciar esta publicación
 El contenido no está disponible aquí
 Accede a este contenido y mucho más en la aplicación de LinkedIn
@@ -465,8 +544,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-4 meses
+305.349 seguidores
+5 meses
 Denunciar esta publicación
 Hoy, Jaqueline nos cuenta su historia como mamá y su principal motivación para estudiar una carrera profesional: sus hijos. 💙🎓 ¡Una historia de esfuerzo, amor y éxito!
 #MamásTQ
@@ -474,7 +553,7 @@ Hoy, Jaqueline nos cuenta su historia como mamá y su principal motivación para
 #MesDeLaMadre
 Video Player is loading.
 Loaded
-3.54%
+2.89%
 0:00
 Stream Type
 LIVE
@@ -488,8 +567,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-4 meses
+305.349 seguidores
+5 meses
 Denunciar esta publicación
 ¿Sabías que en TQ hemos desarrollado obras académicas e investigaciones junto a diversos expertos, aportando a la generación de conocimiento en las ciencias de la vida y la salud?
 ¿Quieres conocer más? Lee el artículo completo aquí:
@@ -502,7 +581,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 5 meses
 Denunciar esta publicación
 En TQ, apoyamos a nuestras mamás para que sigan formándose y sean un ejemplo de superación para sus familias. 💙🎓
@@ -513,7 +592,7 @@ Conoce la historia de Viviana, una mamá TQ que demuestra que todo es posible co
 #SomosTQ
 Video Player is loading.
 Loaded
-2.23%
+2.39%
 0:00
 Stream Type
 LIVE
@@ -527,7 +606,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 5 meses
 Denunciar esta publicación
 Ser una mamá TQ es ser una mujer que inspira, empodera, cumple sus sueños y cada día da lo mejor de sí misma. Ser una mamá TQ es una muestra de valentía. 💙
@@ -537,7 +616,7 @@ Descubre la historia de Karol, quien encontró en TQ la oportunidad de cumplir s
 #DíaDeLaMadre
 Video Player is loading.
 Loaded
-5.51%
+2.76%
 0:00
 Stream Type
 LIVE
@@ -552,8 +631,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-5 meses
+305.349 seguidores
+6 meses
 Denunciar esta publicación
 En TQ aseguramos la excelencia, seguridad y eficacia de cada proceso, y así, cuidamos de tu salud y bienestar con nuestros productos. 🧪
 #TQ90Años
@@ -565,8 +644,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-5 meses
+305.349 seguidores
+6 meses
 Denunciar esta publicación
 En TQ creemos en el poder de la educación como eje de transformación de las personas, para construir una sociedad más equitativa y competitiva. Por eso, contamos con apoyos y programas para los hijos de nuestros colaboradores.
 ¿Quieres conocer alguno en específico? ¡Comenta aquí!
@@ -578,8 +657,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-5 meses
+305.349 seguidores
+6 meses
 Editado
 Denunciar esta publicación
 El programa Semillero TQ es una oportunidad para aprender y enfrentarse a retos profesionales. Aquí impulsamos el talento joven desde su práctica profesional.🩵
@@ -589,7 +668,7 @@ El programa Semillero TQ es una oportunidad para aprender y enfrentarse a retos
 #TotalmenteConfiable
 Video Player is loading.
 Loaded
-1.46%
+1.60%
 0:00
 Stream Type
 LIVE
@@ -604,8 +683,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-5 meses
+305.349 seguidores
+6 meses
 Denunciar esta publicación
 En TQ, sabemos que los libros son una fuente inagotable de aprendizaje, y un buen libro puede ayudarte a mejorar tu desempeño, inspirarte y abrirte nuevas oportunidades.
 El contenido no está disponible aquí
@@ -616,15 +695,15 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-6 meses
+305.349 seguidores
+7 meses
 Denunciar esta publicación
 90 años de historia y trayectoria respaldan y reafirman nuestro compromiso con la salud y el bienestar de las personas.💙
 #SomosTQ
 #DíaMundialDeLaSalud
 Video Player is loading.
 Loaded
-58.42%
+14.73%
 0:00
 Stream Type
 LIVE
@@ -639,8 +718,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-6 meses
+305.349 seguidores
+7 meses
 Denunciar esta publicación
 ¡En TQ seguimos apostándole a la salud y el bienestar de las personas desde cada una de nuestras marcas!
 A través de nuestra marca Winny, hemos donado más de 28 millones de pañales diseñados especialmente para bebés prematuros, reafirmando nuestro compromiso con el cuidado de la niñez y el desarrollo social del país.
@@ -654,14 +733,14 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-6 meses
+305.349 seguidores
+7 meses
 Denunciar esta publicación
 Agradecemos este reconocimiento. Estos 90 años reafirman nuestro compromiso con la salud y el bienestar de las personas. Seguiremos trabajando con responsabilidad para ofrecer soluciones que contribuyan al progreso de nuestra sociedad.
 Lee la publicación completa aquí 👇
 ProPacífico
-10.387 seguidores
-6 meses
+10.480 seguidores
+7 meses
 👏 ¡Reconocimos a nuestro miembro donante
 TQ (Tecnoquímicas)
 por sus 90 años de incansable compromiso con el bienestar de las personas! Su trayectoria es un orgullo para nuestra región y un referente de excelencia, innovación y responsabilidad social.
@@ -675,8 +754,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-6 meses
+305.349 seguidores
+7 meses
 Denunciar esta publicación
 Juega y encuentra todas las parejas de marcas que hacen parte de TQ.
 ¿Lograste encontrarlas todas? Cuéntanos en los comentarios.
@@ -685,7 +764,7 @@ Juega y encuentra todas las parejas de marcas que hacen parte de TQ.
 #TotalmenteConfiable
 Video Player is loading.
 Loaded
-100.00%
+45.28%
 0:00
 Stream Type
 LIVE
@@ -700,15 +779,15 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-6 meses
+305.349 seguidores
+7 meses
 Editado
 Denunciar esta publicación
 ¿Reconoces estas marcas?
 Detrás de nuestros productos hay todo un proceso de fabricación con estándares de alta calidad para entregar salud y bienestar.💙
 Video Player is loading.
 Loaded
-1.99%
+3.99%
 0:00
 Stream Type
 LIVE
@@ -723,7 +802,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 7 meses
 Denunciar esta publicación
 🔎Estudia Asistencia Administrativa e impulsa tu futuro con TQ.
@@ -746,8 +825,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-7 meses
+305.349 seguidores
+8 meses
 Denunciar esta publicación
 En TQ contamos con mujeres que, con su liderazgo, valores y ejemplo, inspiran a sus equipos, impactan sus vidas y contribuyen al logro de los objetivos. En el marco del
 #DíaDeLaMujer
@@ -756,7 +835,7 @@ Te invitamos a comentar, etiquetar, repostear o compartir este contenido con aqu
 #SomosTQ
 Video Player is loading.
 Loaded
-1.38%
+1.39%
 0:00
 Stream Type
 LIVE
@@ -771,8 +850,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-7 meses
+305.349 seguidores
+8 meses
 Denunciar esta publicación
 Contar con un equipo humano dispuesto a retarse y crecer profesionalmente es motivo de orgullo para nosotros.💙
 Leemos sus consejos aquí.👇
@@ -782,8 +861,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-7 meses
+305.349 seguidores
+8 meses
 Denunciar esta publicación
 ¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
 seleccion.tqconfiable.com
@@ -797,8 +876,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-8 meses
+305.349 seguidores
+9 meses
 Denunciar esta publicación
 Ya comenzó el 2025 y con él, nuevos enfoques y propósitos. Queremos saber, ¿cuál es tu principal objetivo este año?
 Si no ves tu propósito en las opciones, ¡déjalo en los comentarios! Te leemos.
@@ -810,8 +889,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-8 meses
+305.349 seguidores
+9 meses
 Denunciar esta publicación
 Hoy, en el Día Internacional de la Energía Limpia, queremos contarte el progreso que hemos tenido como compañía con las energías renovables.💡
 ♻️ ¿Qué acciones sostenibles implementas en tu día a día o en tu compañía para cuidar el planeta? 👇 ¡Cuéntanos en los comentarios!
@@ -824,8 +903,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-8 meses
+305.349 seguidores
+9 meses
 Denunciar esta publicación
 Hoy, Día Internacional de la Educación, queremos que conozcas a Estefanía Naranjo, Representante de Ventas en TQ, quien con su testimonio ratifica nuestro compromiso con la educación de alta calidad con nuestros colaboradores y sus hijos, ya que estamos convencidos de que es una herramienta fundamental para el bienestar de la sociedad, la equidad y la competitividad del país.💙
 #SomosTQ
@@ -833,7 +912,7 @@ Hoy, Día Internacional de la Educación, queremos que conozcas a Estefanía Nar
 #DíaInternacionalDeLaEducación
 Video Player is loading.
 Loaded
-1.81%
+2.30%
 0:00
 Stream Type
 LIVE
@@ -848,8 +927,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-8 meses
+305.349 seguidores
+9 meses
 Denunciar esta publicación
 ¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
 seleccion.tqconfiable.com
@@ -863,7 +942,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 9 meses
 Denunciar esta publicación
 ¡En TQ seguimos apostándole al desarrollo y bienestar de las personas!
@@ -877,8 +956,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-9 meses
+305.349 seguidores
+10 meses
 Denunciar esta publicación
 Cerramos el año recordando nuestros 90 años. Una historia forjada con esfuerzo, dedicación y un propósito claro: la confianza en un mejor futuro, aquel que nace de la salud y el bienestar de las personas.
 Nuestro presidente, Francisco José Barberi, compartió un mensaje emotivo en el que agradeció los aportes de quienes han hecho parte de la gran familia TQ a lo largo de estas nueve décadas. "Celebramos 90 años de trabajo constante y compromiso con un profundo sentido de orgullo y de pertenencia".
@@ -895,8 +974,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-9 meses
+305.349 seguidores
+10 meses
 Editado
 Denunciar esta publicación
 De la mano de la
@@ -913,7 +992,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 10 meses
 Denunciar esta publicación
 En TQ cumplimos 90 años llevando salud y bienestar a millones de personas. La responsabilidad, la transparencia y la solidaridad seguirán guiándonos en la tarea de construir un futuro más confiable.
@@ -922,7 +1001,7 @@ En TQ cumplimos 90 años llevando salud y bienestar a millones de personas. La r
 #TotalmenteConfiable
 Video Player is loading.
 Loaded
-6.69%
+6.00%
 0:00
 Stream Type
 LIVE
@@ -931,13 +1010,13 @@ Current Time
 Duration
 0:41
 1x
-504
+503
 13 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 10 meses
 Denunciar esta publicación
 ¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
@@ -952,7 +1031,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 10 meses
 Denunciar esta publicación
 Las alianzas por la educación de calidad transforman vidas y aportan al futuro de Colombia.
@@ -964,7 +1043,7 @@ En TQ seguimos comprometidos con el bienestar de las personas y el desarrollo de
 #AlianzasQueTransforman
 #90AñosTQ
 Universidad Icesi
-83.808 seguidores
+84.174 seguidores
 10 meses
 En el marco de los 90 años de
 TQ (Tecnoquímicas)
@@ -975,7 +1054,7 @@ Felicitaciones TQ por 90 años comprometidos con la salud y el bienestar de las
 #transformación
 Video Player is loading.
 Loaded
-1.11%
+2.25%
 0:00
 Stream Type
 LIVE
@@ -989,7 +1068,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 10 meses
 Denunciar esta publicación
 ¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
@@ -1004,7 +1083,7 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
+305.349 seguidores
 10 meses
 Denunciar esta publicación
 Creemos que la educación es el eje fundamental y la principal herramienta de transformación social. Por eso, en TQ, contamos con diferentes programas de acceso a educación de alta calidad para nuestros colaboradores y sus familias.
@@ -1017,8 +1096,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
+305.349 seguidores
+11 meses
 Denunciar esta publicación
 En TQ, estamos comprometidos con el desarrollo de nuestros colaboradores. Por eso, les brindamos oportunidades de formación y aprendizaje, beneficios que aporten a su bienestar integral y al de su familia, entre muchas cosas más.
 Vota o déjanos en los comentarios cuál es el factor más atractivo para unirte a una compañía. Te leemos👀👇🏼
@@ -1030,8 +1109,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
+305.349 seguidores
+11 meses
 Denunciar esta publicación
 ¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
 seleccion.tqconfiable.com
@@ -1045,8 +1124,8 @@ Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
+305.349 seguidores
+11 meses
 Denunciar esta publicación
 Descubre el equipo de expertos que impulsa la formación integral de los hijos de nuestros colaboradores 📚✨🤓
 Gracias a su dedicación y compromiso, nuestro Centro de Estimulación y Desarrollo es un ambiente sano y seguro que le permite a los niños y las niñas potenciar sus capacidades y desarrollar sus competencias para la vida. ✨💙
@@ -1056,7 +1135,7 @@ Déjanos un like si te gusta este tipo de contenidos.
 #SomosTQ
 Video Player is loading.
 Loaded
-1.67%
+2.57%
 0:00
 Stream Type
 LIVE
@@ -1065,14 +1144,14 @@ Current Time
 Duration
 1:06
 1x
-218
+217
 6 comentarios
 Recomendar
 Comentar
 Compartir
 TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
+305.349 seguidores
+11 meses
 Denunciar esta publicación
 ¿Conoces nuestro Centro de Estimulación y Desarrollo TQ?🌟📚
 En este espacio brindamos un modelo educativo de alta calidad para los hijos de nuestros colaboradores.
@@ -1082,7 +1161,7 @@ Aquí te contamos las experiencias de nuestros colaboradores para que descubras 
 #FamiliasTQ
 Video Player is loading.
 Loaded
-2.68%
+2.77%
 0:00
 Stream Type
 LIVE
@@ -1093,265 +1172,6 @@ Duration
 1x
 295
 12 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-smdiaz@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 20/12/2024.
-100
-15 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-marango@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 15/12/2024.
-75
-10 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-seleccionplantas@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 01/02/2025.
-71
-10 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-slcordoba@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 20/12/2024.
-74
-12 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-10 meses
-Denunciar esta publicación
-¡Te invitamos a visitar nuestro auditorio TQ en el marco de la
-#FeriaInternacionalDelLibroDeCali
-Disfruta de este evento literario y cultural para toda la familia, lleno de conocimiento, arte, gastronomía y espectáculos en vivo.
-Estaremos hasta el 24 de noviembre en el Bulevar del Río, desde las 8 a.m. hasta las 10 p.m. ¡No te lo pierdas!
-#FILCALI
-#FeriaDelLibroCali
-#CaliLeeConTQ
-#JapónEnCali
-#CulturaYLibros
-#LecturaQueInspira
-Video Player is loading.
-Loaded
-3.13%
-0:00
-Stream Type
-LIVE
-Current Time
-0:00
-Duration
-0:32
-1x
-64
-1 comentario
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-En TQ reconocemos el compromiso y la dedicación de nuestros psicólogos, quienes trabajan con excelencia para generar impactos positivos en diferentes áreas de nuestra compañía.
-¡Feliz día del psicólogo! 🧑💼👩💼💙
-#TalentoTQ
-#Vocación
-#DíaDelPsicólogo
-Video Player is loading.
-Loaded
-3.33%
-0:00
-Stream Type
-LIVE
-Current Time
-0:00
-Duration
-1:19
-1x
-171
-7 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-Celebramos 30 años de nuestro programa de visita hospitalaria, junto a nuestras marcas Winny y Crema N.4 🐻❄️💙👶🏼
-Te invitamos a ver el video completo para conocer sobre nuestro programa. 👇🏼
-#Winny
-#CremaN4
-#BienvenidaAlMundo
-#VisitaHospitalaria
-#SomosTQ
-Video Player is loading.
-Loaded
-3.63%
-0:00
-Stream Type
-LIVE
-Current Time
-0:00
-Duration
-0:46
-1x
-152
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-cvcortes@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 30/11/2024.
-67
-8 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-cvcortes@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 30/11/2024.
-89
-20 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-vgonzalez@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 15/11/2024.
-84
-11 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-vgonzalez@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-47
-4 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-vgonzalez@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 15/11/2024.
-86
-19 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-slcordoba@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 30/11/2024.
-85
-4 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-smdiaz@tqgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-114
-4 comentarios
-Recomendar
-Comentar
-Compartir
-TQ (Tecnoquímicas)
-303.864 seguidores
-11 meses
-Denunciar esta publicación
-¡Trabaja con nosotros! Si la siguiente oferta laboral se ajusta a tu perfil, regístrate en
-seleccion.tqconfiable.com
-y envía tu hoja de vida al correo 👉
-marango@TQgrupo.com
-¡IMPORTANTE! Debes colocar en el asunto del correo el nombre de la vacante.
-📆Fecha límite de postulación: 15/11/2024.
-51
-6 comentarios
 Recomendar
 Comentar
 Compartir

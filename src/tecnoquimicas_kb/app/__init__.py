@@ -1,0 +1,1 @@
+# Aplicación Streamlit para Tecnoquímicas KB

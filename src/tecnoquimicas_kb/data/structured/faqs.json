@@ -1,0 +1,11 @@
+{
+  "telefono_servicio_cliente": "01-8000-123456",
+  "horarios_atencion": "Lunes a Viernes: 8:00 AM - 6:00 PM, Sábados: 8:00 AM - 12:00 PM",
+  "nit_empresa": "890.123.456-7",
+  "correo_soporte": "soporte@tecnoquimicas.com",
+  "sitio_web": "https://www.tecnoquimicas.com",
+  "sedes_cali": [
+    "Cali - Sede Principal: Calle 44 #2-15",
+    "Cali - Norte: Carrera 100 #15-45"
+  ]
+}

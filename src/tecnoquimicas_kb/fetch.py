@@ -106,7 +106,7 @@ def _try_accept_cookies(driver: webdriver.Chrome, timeout: int = 4) -> bool:
     try:
         for xp in xpath_candidates:
             try:
-                elems = WebDriverWait(driver, timeout).until(
+                elems = WebDriverWait(driver, 1).until(
                     EC.presence_of_all_elements_located((By.XPATH, xp))
                 )
                 if _click_elements(elems):
@@ -177,7 +177,7 @@ def fetch_html_selenium(
 
         try:
             time.sleep(max(1, cfg.selenium_wait_sec // 2))
-            _try_accept_cookies(driver, timeout=4)
+            _try_accept_cookies(driver, timeout=1)
         except Exception:
             pass
 
@@ -186,7 +186,7 @@ def fetch_html_selenium(
         if cfg.auto_scroll:
             _auto_scroll(driver, cfg.scroll_pause, cfg.max_scroll_steps)
             try:
-                _try_accept_cookies(driver, timeout=3)
+                _try_accept_cookies(driver, timeout=1)
             except Exception:
                 pass
 

@@ -38,3 +38,7 @@ clean-tmp:
 ollama-pull:
 	ollama pull gemma3:4b
 	ollama pull gemma3:270m
+
+# Inicialización de el agente
+agent-app:
+	uv run --isolated streamlit run src/tecnoquimicas_kb/app/app_agent.py
