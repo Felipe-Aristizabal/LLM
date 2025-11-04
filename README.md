@@ -144,25 +144,11 @@ src/tecnoquimicas_kb/data/
 
 ---
 
-## Ejecutar la app de prueba (Stuffing)
+## Ejecutar la app de prueba (Memory Model)
 
 ```bash
-make stuffing-app
+make agent-app
 # equivalente:
-# uv run streamlit run src/tecnoquimicas_kb/app/app_stuffing.py
+# uv run streamlit run src/tecnoquimicas_kb/app/app_agent.py
 ```
 
-En la **sidebar**:
-- Cambia `Provider` **gemini** ↔ **ollama**.
-- Ajusta **Top archivos** y **límites de contexto** si te topas la cuota de Gemini.  
-- Para local: `ollama pull gemma3:4b` (mejor que `270m` u otro modelo de Ollama).
-
----
-
-## Cuotas de Gemini y consejo práctico
-
-- El **free tier** limita los **tokens de entrada por minuto** (~125k). Si concatenas demasiado texto o das clics seguidos, puedes recibir `ResourceExhausted (429)`.
-- **Mitigación**: usa “targeted stuffing” (ya viene en el código), baja los límites en la sidebar, y considera `MODEL_PROVIDER=ollama` mientras se restablece la cuota.
-
-
----
