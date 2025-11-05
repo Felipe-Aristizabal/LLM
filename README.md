@@ -23,14 +23,22 @@
 [data/links.txt] -> [scraper -> raw_html / clean_text / chunks] -> [organizar a estructura canónica]
                                                                               │
                                                                               ▼
-                                                        [stuffing: contexto construido desde archivos]
+                                                       [stuffing: contexto top-k desde archivos]
                                                                               │
                                                                               ▼
-                                                [Prompts con guardrails (Resumen | FAQ | Q&A)]
-                                                                              │
-                                        ┌───────────────┬─────────────────────┘
-                                        ▼               ▼
-                               [Gemini 2.5 Pro]   [Ollama: gemma3:4b]
+      ┌──────────────────────────────────────────────────────────────────────────────────────────┐
+      │              Agente Conversacional  [Gemini 2.5 Pro]   [Ollama: gemma3:4b]               │
+      │  (memoria por sesión + prompts con guardrails + enrutamiento estructurado/documental)    │
+      └──────────────────────────────────────────────────────────────────────────────────────────┘
+                                  │                                               │
+                                  ▼                                               ▼
+                          [TOOL_STRUCT]                                     [TOOL_DOCS (RAG)]
+                      (catálogo determinista)                       (LLM + contexto documental)
+                                  │                                               │
+                                  ▼                                               ▼
+                      Respuesta concreta (tel, NIT,                    Respuesta explicativa
+                       horarios, correos, sedes…)                      basada en el contexto
+                              
 ```
 
 - **Targeted stuffing**: se arma el contexto con **k archivos más relevantes** (por coincidencia de términos), para reducir tokens.  
@@ -144,11 +152,66 @@ src/tecnoquimicas_kb/data/
 
 ---
 
-## Ejecutar la app de prueba (Memory Model)
+## Ejecutar el **Agente Q&A**
 
-```bash
+A continuación se detalla la forma recomendada para levantar la app, alternar proveedor (Gemini/Ollama) y verificar el estado del backend de modelo. 
+
+```
 make agent-app
-# equivalente:
-# uv run streamlit run src/tecnoquimicas_kb/app/app_agent.py
 ```
 
+## ¿Cómo decide el agente? (Routing)
+
+El agente enruta cada consulta a la mejor fuente de verdad según su **intención**.
+
+---
+
+### 1) `TOOL_STRUCT` — Datos deterministas (catálogo)
+
+**Cuándo**  
+El usuario pide un **dato concreto**:
+- Teléfono, NIT, horario, correo, sedes, sitio web, etc.
+
+**Qué hace**  
+1. **Normaliza** la consulta (minúsculas, sin acentos, limpia ruido).  
+2. Aplica **reglas simples de intención** (keywords) → campo del **JSON estructurado** (cacheado por *mtime*).  
+3. Devuelve respuesta **exacta** y **rápida**, **sin** intervención del LLM.
+
+**Ventajas**  
+- **Cero alucinaciones** (la fuente es determinista).  
+- **Baja latencia** y **costo cero** (no llama al LLM).
+
+**Ejemplos**  
+- “¿Cuál es el teléfono de servicio al cliente?”  
+- “Dime el NIT de la empresa.”  
+- “Horarios de atención en Cali.”
+
+> Si hay **match**, el agente **no** consulta el LLM y responde de inmediato.  
+> Si **no** hay coincidencia o el campo está vacío ⇒ **pasa a `TOOL_DOCS`**.
+
+---
+
+### 2) `TOOL_DOCS` — Documental / RAG (Stuffing + LLM)
+
+**Cuándo**  
+Preguntas **explicativas** o de **contexto**:
+- Historia, políticas, procesos, iniciativas, cultura, sostenibilidad, innovación, etc.
+
+**Qué hace**  
+1. Construye un **contexto compacto** (*targeted stuffing*) con los **k archivos más relevantes** (p. ej., `k=12–15`), a partir de `clean_text/chunks` con metadatos (texto, URL, sección, fecha, id de chunk).  
+2. Inyecta **guardrails** en el prompt:  
+   - “Si el contexto no es suficiente, dilo; **no inventes**.”  
+   - “Resume y responde en **5–8 oraciones**.”  
+3. Invoca el **LLM** (Gemini u Ollama) seleccionado en la **UI**.  
+4. Integra **memoria por sesión** para **coherencia** en *follow-ups*.
+
+**Ventajas**  
+- Respuestas **contextuales** y **explicativas**.  
+- **Control de alucinación** vía guardrails + contexto.
+
+**Ejemplos**  
+- “¿Qué iniciativas de sostenibilidad lidera TQ?”  
+- “Explica la historia y valores de Tecnoquímicas.”  
+- “¿Cómo se relaciona el área de innovación con las marcas X e Y?”
+
+> Si el **contexto no respalda** la respuesta, el agente **lo declara** y sugiere **próximos pasos** (fuentes, áreas, enlaces).
