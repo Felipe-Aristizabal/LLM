@@ -13,17 +13,6 @@ from typing import Dict, Iterable, List, Sequence, Tuple
 from tecnoquimicas_kb.config.settings import settings
 from tecnoquimicas_kb.domain.models import DocLike, Document
 
-# Try to reuse the battle-tested implementations from the legacy module
-# while still exposing a clean domain-level API.
-try:  # pragma: no cover - thin wrapper
-    from tecnoquimicas_kb.rag.stuffing import (  # type: ignore[import]
-        build_context_all as _legacy_build_context_all,
-        build_context_for_question as _legacy_build_context_for_question,
-    )
-except ImportError:  # pragma: no cover
-    _legacy_build_context_all = None
-    _legacy_build_context_for_question = None
-
 
 def _normalize_docs(docs: Sequence[DocLike]) -> List[Tuple[str, Dict]]:
     """Convert DocLike instances into the legacy (text, metadata) tuples.
@@ -74,10 +63,6 @@ def build_context_all(
     legacy_docs = _normalize_docs(docs)
     effective_limit = limit_chars or settings.context.max_context_chars_all
 
-    if _legacy_build_context_all is not None:
-        # Delegate to the existing implementation to avoid behaviour drift.
-        return _legacy_build_context_all(legacy_docs, limit_chars=effective_limit)
-
     # Fallback implementation mirroring the legacy behaviour.
     parts: List[str] = []
     total = 0
@@ -127,15 +112,6 @@ def build_context_for_question(
     legacy_docs = _normalize_docs(docs)
     effective_k = k_files or settings.context.default_k_files_qa
     effective_limit = limit_chars or settings.context.max_context_chars_qa
-
-    if _legacy_build_context_for_question is not None:
-        # Delegate to the existing implementation when available.
-        return _legacy_build_context_for_question(
-            question,
-            legacy_docs,
-            k_files=effective_k,
-            limit_chars=effective_limit,
-        )
 
     # Fallback implementation mirroring the legacy ranking.
     tokens = {token.lower() for token in re.findall(r"[A-Za-zÀ-ÿ0-9_]+", question)}

@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Iterable, List, Union
+from typing import List, Union
 
 
 # Default question set used when no external file is provided. The goal

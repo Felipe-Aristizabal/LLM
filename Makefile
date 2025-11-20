@@ -5,13 +5,12 @@ LINKS ?= links.txt
 OUT_TMP ?= src/tecnoquimicas_kb/data/tmp/
 CLEAN_DIR ?= src/tecnoquimicas_kb/data/clean
 RAW_DIR ?= src/tecnoquimicas_kb/data/raw
-INDEX_DIR ?= src/tecnoquimicas_kb/index/faiss
 MAX_PAGES ?= 25           # Páginas por dominio
 MAX_TOTAL_PAGES ?= 200    # Límite global de páginas
 EVAL_OUT ?= qa_eval_results.jsonl
 
-.PHONY: init scrape-headless scrape-headful data-organize qa-app \
-        build-index eval-qa clean-tmp ollama-pull
+.PHONY: init ollama-pull scrape-headless data-organize \
+        build-index app clean-tmp 
 
 init:
 	uv sync
@@ -45,20 +44,13 @@ data-organize:
 		--clean-dir $(CLEAN_DIR) \
 		--raw-dir $(RAW_DIR)
 
-# Construir / reconstruir el índice FAISS a partir de CLEAN_DIR
+# Construir índice FAISS
 build-index:
-	uv run python -m tecnoquimicas_kb.app.cli.index_cli \
-		--data-dir $(CLEAN_DIR) \
-		--index-dir $(INDEX_DIR)
+	uv run python -m tecnoquimicas_kb.app.cli.build_faiss
 
-# Ejecutar la app de QA full-context (modo stuffing, sin FAISS)
+# Ejecutar la app 
 app:
 	uv run streamlit run src/tecnoquimicas_kb/app/app.py
-
-# Correr evaluación de QA usando el dataset por defecto (o el que definas en el CLI)
-eval-qa:
-	uv run python -m tecnoquimicas_kb.apps.cli.eval_cli \
-		--output-file $(EVAL_OUT)
 
 clean-tmp:
 	uv run python -c "import shutil,sys; shutil.rmtree('$(OUT_TMP)', ignore_errors=True)"

@@ -12,10 +12,14 @@ from __future__ import annotations
 from langchain_core.prompts import ChatPromptTemplate
 
 # ---------------------------------------------------------------------------
-# Mensaje de sistema base compartido por todos los flujos
+# Prompt system based shared with the workflows
 # ---------------------------------------------------------------------------
 
 SYSTEM_BASE: str = (
+    "Si la entrada del usuario es solo un saludo o una frase social breve "
+    "(por ejemplo “hola”, “buenos días”), responde con un saludo corto y di "
+    "en una frase que puedes ayudar a resolver dudas sobre Tecnoquímicas "
+    "usando la información disponible."
     "Eres un asistente experto de Tecnoquímicas (TQ) para un sistema RAG.\n"
     "TU ÚNICA fuente de verdad es el CONTEXTO provisto en este turno. "
     "Está TERMINANTEMENTE PROHIBIDO usar conocimiento externo, suposiciones "
@@ -90,24 +94,7 @@ SYSTEM_BASE: str = (
 )
 
 # ---------------------------------------------------------------------------
-# QA: pregunta-respuesta con contexto
-# ---------------------------------------------------------------------------
-
-P_QA: ChatPromptTemplate = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            SYSTEM_BASE + "\n\nCONTEXTO:\n{context}",
-        ),
-        (
-            "human",
-            "Pregunta: {q}",
-        ),
-    ]
-)
-
-# ---------------------------------------------------------------------------
-# SUMMARY: resumen de onboarding / presentación de TQ
+# SUMMARY: TQ presentation
 # ---------------------------------------------------------------------------
 
 P_SUMMARY: ChatPromptTemplate = ChatPromptTemplate.from_messages(
@@ -136,7 +123,24 @@ P_SUMMARY: ChatPromptTemplate = ChatPromptTemplate.from_messages(
 )
 
 # ---------------------------------------------------------------------------
-# FAQ: generación de preguntas frecuentes a partir de contexto
+# QA: Question-Answer with context
+# ---------------------------------------------------------------------------
+
+P_QA: ChatPromptTemplate = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            SYSTEM_BASE + "\n\nCONTEXTO:\n{context}",
+        ),
+        (
+            "human",
+            "Pregunta: {q}",
+        ),
+    ]
+)
+
+# ---------------------------------------------------------------------------
+# FAQ: Question generation
 # ---------------------------------------------------------------------------
 
 P_FAQ: ChatPromptTemplate = ChatPromptTemplate.from_messages(
@@ -166,4 +170,76 @@ P_FAQ: ChatPromptTemplate = ChatPromptTemplate.from_messages(
     ]
 )
 
-__all__ = ["SYSTEM_BASE", "P_QA", "P_SUMMARY", "P_FAQ"]
+# ---------------------------------------------------------------------------
+# Compose between structured data and Context
+# ---------------------------------------------------------------------------
+
+P_QA_COMPOSE: ChatPromptTemplate = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "Eres un asistente de Tecnoquímicas. Responde SOLO con la información del CONTEXTO y del APÉNDICE DE DATOS EXACTOS. No inventes. Español neutro.",
+        ),
+        (
+            "human",
+            (
+                "HISTORIAL (resumido si aplica):\n{history}\n\n"
+                "PREGUNTA:\n{q}\n\n"
+                "CONTEXTO (RAG):\n{context}\n\n"
+                "APÉNDICE DE DATOS EXACTOS:\n{facts}\n\n"
+                "Instrucciones:\n"
+                "- Mantén el formato del resumen/pedido del usuario.\n"
+                "- Incorpora los datos del APÉNDICE tal cual (no los alteres).\n"
+                "- Cita las fuentes del CONTEXTO y del APÉNDICE al final si están disponibles.\n"
+            ),
+        ),
+    ]
+)
+
+# ---------------------------------------------------------------------------
+# FOLLOW-UP DETECTOR PROMPT
+# ---------------------------------------------------------------------------
+
+P_FOLLOWUP_CLASSIFIER = """
+Eres un clasificador de turnos en una conversación entre un usuario y un asistente.
+
+Tu tarea es decidir si la PREGUNTA ACTUAL es un SEGUIMIENTO (follow-up) que
+MODIFICA o AMPLÍA la respuesta anterior del asistente, o si es un TEMA NUEVO
+independiente.
+
+Definición de FOLLOW-UP (is_follow_up = true):
+- El usuario se refiere explícitamente a la respuesta anterior con expresiones como:
+  "incluye", "agrega", "añade", "amplía", "amplia", "vuelve a", "otra vez",
+  "pero ahora", "el primero", "lo anterior", "ese resumen", "esas marcas",
+  "las marcas que mencionaste", "eso mismo pero", etc.
+- El usuario pide repetir o rehacer una respuesta anterior con cambios.
+- El turno actual depende claramente de lo que el asistente dijo antes.
+
+NO es follow-up (is_follow_up = false) cuando:
+- El usuario pide información concreta por primera vez, 
+  por ejemplo: "Dime las marcas que maneja Tecnoquímicas",
+  "¿Cuál es la dirección de Tecnoquímicas?", 
+  "¿En qué países opera Tecnoquímicas?".
+- El usuario inicia un tema nuevo aunque haya historial previo.
+- La pregunta no modifica ni hace referencia a una respuesta previa específica.
+
+Historial reciente:
+{history}
+
+Pregunta actual del usuario:
+{question}
+
+Responde SOLO un JSON en una línea, sin texto adicional, sin bloques de código,
+con el siguiente formato exacto:
+
+{{"is_follow_up": true | false, "reason": "<breve explicación en español>"}}
+"""
+
+__all__ = [
+    "SYSTEM_BASE",
+    "P_SUMMARY",
+    "P_QA",
+    "P_FAQ",
+    "P_QA_COMPOSE",
+    "P_FOLLOWUP_CLASSIFIER",
+]

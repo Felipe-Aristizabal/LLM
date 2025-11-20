@@ -1,0 +1,215 @@
+{
+  "facts": [
+    {
+      "id": "company_business_sectors",
+      "category": "company",
+      "type": "business_sectors",
+      "label": "Sectores de negocio de Tecnoquímicas",
+      "value": "Medicamentos y productos farmacéuticos de prescripción y OTC; cuidado del bebé (pañales y productos relacionados); cuidado personal y del hogar (desodorantes, cuidado oral, entre otros); adhesivos y productos para oficina y hogar; línea agrícola y veterinaria.",
+      "description": "Principales sectores de negocio en los que opera Tecnoquímicas.",
+      "keywords": [
+        "sectores",
+        "líneas de negocio",
+        "negocios",
+        "portafolio",
+        "qué hace Tecnoquímicas"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "company_main_brands",
+      "category": "company",
+      "type": "brand_list",
+      "label": "Marcas principales de Tecnoquímicas",
+      "value": "MK, Winny, Lua, Yodora, CureBand, Noraver, Colbón, Crema No. 4, Ibuflash, Vitafull y Content.",
+      "description": "Según la información corporativa, Tecnoquímicas maneja las siguientes marcas principales:",
+      "keywords": [
+        "marca",
+        "marcas",
+        "marcas principales",
+        "portafolio de marcas",
+        "productos principales",
+        "productos importantes",
+        "qué marcas maneja Tecnoquímicas"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "company_geographic_presence",
+      "category": "company",
+      "type": "geographic_presence",
+      "label": "Presencia geográfica de Tecnoquímicas",
+      "value": "Tecnoquímicas tiene operación propia en Colombia, Ecuador, Guatemala, Honduras, Panamá, Nicaragua, República Dominicana, Costa Rica y El Salvador, y exporta productos a cerca de 20 países de América.",
+      "description": "Resumen de la presencia geográfica de Tecnoquímicas en América Latina.",
+      "keywords": [
+        "presencia",
+        "países",
+        "dónde opera",
+        "en qué países está Tecnoquímicas",
+        "cobertura"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "company_employee_count",
+      "category": "company",
+      "type": "employee_count",
+      "label": "Número aproximado de colaboradores",
+      "value": "Más de 8.200 colaboradores, con planes de expansión que pueden llevar la cifra a alrededor de 9.000 empleados entre Colombia y el exterior.",
+      "description": "Número aproximado de colaboradores del Grupo Tecnoquímicas.",
+      "keywords": [
+        "empleados",
+        "colaboradores",
+        "personal",
+        "cuántos empleados tiene Tecnoquímicas"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "hq_address_cali",
+      "category": "contact",
+      "type": "address",
+      "label": "Dirección sede principal en Cali",
+      "value": "Calle 23 # 7-34, Santiago de Cali, Valle del Cauca, Colombia",
+      "description": "Dirección de la sede principal de Tecnoquímicas en Cali.",
+      "keywords": [
+        "dirección",
+        "direccion",
+        "sede principal",
+        "oficina principal",
+        "cali"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "phone_switchboard_cali",
+      "category": "contact",
+      "type": "phone",
+      "label": "Conmutador Cali",
+      "value": "+57 (602) 882 5555",
+      "description": "Número de conmutador de la sede de Tecnoquímicas en Cali.",
+      "keywords": [
+        "teléfono",
+        "telefono",
+        "teléfono cali",
+        "conmutador",
+        "llamar a Tecnoquímicas"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "phone_consumer_service_co",
+      "category": "contact",
+      "type": "phone",
+      "label": "Servicio al consumidor en Colombia",
+      "value": "01 8000 523339",
+      "description": "Línea nacional de servicio al consumidor de Tecnoquímicas en Colombia.",
+      "keywords": [
+        "servicio al consumidor",
+        "servicio al cliente",
+        "teléfono servicio al consumidor",
+        "telefono servicio al consumidor",
+        "línea gratuita"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "email_consumer_service",
+      "category": "contact",
+      "type": "email",
+      "label": "Correo de servicio al consumidor",
+      "value": "serviciosalconsumidor@tecnoquimicas.com",
+      "description": "Correo electrónico de servicio al consumidor de Tecnoquímicas.",
+      "keywords": [
+        "correo",
+        "email",
+        "servicio al consumidor",
+        "contacto correo",
+        "atención al cliente correo"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "website_official",
+      "category": "contact",
+      "type": "website",
+      "label": "Sitio web oficial de Tecnoquímicas",
+      "value": "https://www.tqconfiable.com",
+      "description": "Sitio web oficial para información corporativa y productos.",
+      "keywords": [
+        "sitio web",
+        "página web",
+        "web oficial",
+        "tqconfiable"
+      ],
+      "metadata": {
+        "source": "https://www.tqconfiable.com/"
+      }
+    },
+    {
+      "id": "social_facebook",
+      "category": "contact",
+      "type": "social",
+      "label": "Facebook oficial de Tecnoquímicas",
+      "value": "https://www.facebook.com/TQConfiable",
+      "description": "Perfil oficial de Tecnoquímicas en Facebook.",
+      "keywords": [
+        "facebook",
+        "redes sociales",
+        "facebook tq"
+      ],
+      "metadata": {
+        "source": "https://www.facebook.com/TQConfiable"
+      }
+    },
+    {
+      "id": "social_linkedin",
+      "category": "contact",
+      "type": "social",
+      "label": "LinkedIn de Tecnoquímicas",
+      "value": "https://www.linkedin.com/company/tecnoquimicas",
+      "description": "Página de empresa de Tecnoquímicas en LinkedIn.",
+      "keywords": [
+        "linkedin",
+        "redes sociales",
+        "empleo",
+        "trabajar en Tecnoquímicas"
+      ],
+      "metadata": {
+        "source": "https://www.linkedin.com/company/tecnoquimicas"
+      }
+    },
+    {
+      "id": "social_youtube",
+      "category": "contact",
+      "type": "social",
+      "label": "Canal de YouTube de Tecnoquímicas",
+      "value": "https://www.youtube.com/user/grupotq",
+      "description": "Canal oficial de Tecnoquímicas en YouTube.",
+      "keywords": [
+        "youtube",
+        "videos",
+        "canal oficial"
+      ],
+      "metadata": {
+        "source": "https://www.youtube.com/user/grupotq"
+      }
+    }
+  ]
+}

@@ -1,90 +1,118 @@
 """High-level QA services for the Tecnoquímicas RAG assistant.
 
-This module exposes functions such as `answer_question` and helpers for
-generating onboarding summaries or FAQ lists. Internally, it reuses the
-legacy stuffing-based implementations to keep behaviour consistent while
-providing a cleaner entrypoint for other parts of the system.
+This module exposes the main entrypoints for question answering and
+content generation:
+
+- answer_question:      responde una pregunta usando toda la base de
+                        conocimiento limpia.
+- summarize_for_onboarding: genera un resumen introductorio.
+- generate_faqs:        produce una lista de preguntas frecuentes.
 """
 
 from __future__ import annotations
 
+import logging
 import os
 from typing import List, Sequence
 
 from google.api_core.exceptions import ResourceExhausted
 from langchain_core.language_models.chat_models import BaseChatModel
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 
 from tecnoquimicas_kb.config.settings import settings
 from tecnoquimicas_kb.domain.context_builder import (
     build_context_all,
     build_context_for_question,
 )
-from tecnoquimicas_kb.domain.models import DocLike, Document, QARequest, QAResponse
+from tecnoquimicas_kb.domain.models import DocLike, Document, QAResponse
 from tecnoquimicas_kb.domain.prompts import P_FAQ, P_QA, P_SUMMARY
+from tecnoquimicas_kb.domain.retriever import retrieve_for_question
+from tecnoquimicas_kb.infrastructure.ingestion.file_loader import load_all_docs
 
-# Import legacy implementations to delegate most of the work for now.
-# This allows gradual refactoring without breaking existing behaviour.
-try:  # pragma: no cover - thin wrappers
-    from tecnoquimicas_kb.rag.stuffing import (  # type: ignore[import]
-        load_all_docs as _legacy_load_all_docs,
-        summarize_stuffing as _legacy_summarize_stuffing,
-        faq_stuffing as _legacy_faq_stuffing,
-        qa_stuffing as _legacy_qa_stuffing,
-        get_llm as _legacy_get_llm,
-    )
-except ImportError:  # pragma: no cover
-    _legacy_load_all_docs = None
-    _legacy_summarize_stuffing = None
-    _legacy_faq_stuffing = None
-    _legacy_qa_stuffing = None
-    _legacy_get_llm = None
+logger = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# LLM factory
+# ---------------------------------------------------------------------------
 
 
 def _ensure_llm() -> BaseChatModel:
-    """Return a chat model instance based on the configured provider.
+    """Create a chat model instance based on the configured provider.
 
-    When the legacy `get_llm` function is available, it is used directly.
-    Otherwise a simple provider switch is implemented locally.
+    The selection is driven by `settings.llm.provider` and the associated
+    model identifiers in the settings module.
     """
-    if _legacy_get_llm is not None:
-        return _legacy_get_llm()
+    ui_provider = os.getenv("UI_MODEL_PROVIDER")
+    provider = (ui_provider or settings.llm.provider).lower()
 
-    # Local fallback keeps compatibility with the environment variables
-    # used in the legacy code.
-    from langchain_google_genai import ChatGoogleGenerativeAI
-    from langchain_ollama import ChatOllama
-
-    provider = settings.llm.provider
     if provider == "ollama":
-        return ChatOllama(model=settings.llm.ollama_model_id)
+        ui_model = os.getenv("UI_OLLAMA_MODEL_ID")
+        model_id = ui_model or settings.llm.ollama_model_id
+        logger.debug(
+            "Creating Ollama chat model. provider=%s model=%s (ui_provider=%r ui_model=%r)",
+            provider,
+            model_id,
+            ui_provider,
+            ui_model,
+        )
+        return ChatOllama(model=model_id)
 
-    # Default to Google Gemini models
-    return ChatGoogleGenerativeAI(model=settings.llm.google_model_id)
+    # Default - Gemini
+    ui_model = os.getenv("UI_GEN_MODEL_ID")
+    model_id = ui_model or settings.llm.google_model_id
+    logger.debug(
+        "Creating Gemini chat model. provider=%s model=%s (ui_provider=%r ui_model=%r)",
+        provider,
+        model_id,
+        ui_provider,
+        ui_model,
+    )
+    return ChatGoogleGenerativeAI(model=model_id)
 
 
-def _normalize_docs(docs: Sequence[DocLike]) -> List[Document]:
-    """Convert DocLike items into Document instances."""
-    normalized: List[Document] = []
-    for item in docs:
-        if isinstance(item, Document):
-            normalized.append(item)
-        else:
-            text, meta = item
-            normalized.append(Document(text=str(text), metadata=dict(meta)))
-    return normalized
+# ---------------------------------------------------------------------------
+# Document helpers
+# ---------------------------------------------------------------------------
+
+
+def _load_corpus_documents() -> List[Document]:
+    """Load all knowledge-base documents from the clean data directory."""
+    tuples = load_all_docs(settings.paths.data_clean_dir)
+    docs: List[Document] = [Document(text=text, metadata=meta) for text, meta in tuples]
+    logger.debug(
+        "Loaded %d documents from %s",
+        len(docs),
+        settings.paths.data_clean_dir,
+    )
+    return docs
+
+
+# ---------------------------------------------------------------------------
+# Public utilities: summaries and FAQs
+# ---------------------------------------------------------------------------
 
 
 def summarize_for_onboarding(docs: Sequence[DocLike]) -> str:
-    """Generate an onboarding summary for a new client based on documents."""
+    """Generate an onboarding summary for a new client.
+
+    Parameters
+    ----------
+    docs:
+        Iterable of documents to summarize. Can be `Document` instances
+        or (text, metadata) tuples.
+
+    Returns
+    -------
+    str
+        Short Spanish summary. Returns an empty string if no documents
+        are provided.
+    """
     if not docs:
+        logger.warning("summarize_for_onboarding called with no documents.")
         return ""
 
-    if _legacy_summarize_stuffing is not None:
-        # Use the existing, tuned implementation when available.
-        legacy_docs = [(d.text, d.metadata) for d in _normalize_docs(docs)]
-        return _legacy_summarize_stuffing(legacy_docs)
-
-    # Fallback: build context and call the LLM directly.
     ctx = build_context_all(docs)
     llm = _ensure_llm()
     msg = P_SUMMARY.format(context=ctx)
@@ -93,19 +121,32 @@ def summarize_for_onboarding(docs: Sequence[DocLike]) -> str:
         out = llm.invoke(msg)
         return out.content
     except ResourceExhausted:
-        # On quota errors, apply a simple retry once.
+        logger.warning(
+            "ResourceExhausted in summarize_for_onboarding; retrying once.",
+        )
         out = llm.invoke(msg)
         return out.content
 
 
 def generate_faqs(docs: Sequence[DocLike], n: int = 10) -> str:
-    """Generate a FAQ list for clients based on the provided documents."""
-    if not docs:
-        return ""
+    """Generate a FAQ list based on the provided documents.
 
-    if _legacy_faq_stuffing is not None:
-        legacy_docs = [(d.text, d.metadata) for d in _normalize_docs(docs)]
-        return _legacy_faq_stuffing(legacy_docs, n=n)
+    Parameters
+    ----------
+    docs:
+        Iterable of documents to analyse.
+    n:
+        Desired number of FAQ entries.
+
+    Returns
+    -------
+    str
+        Text block with FAQs in Spanish. Returns an empty string if no
+        documents are provided.
+    """
+    if not docs:
+        logger.warning("generate_faqs called with no documents.")
+        return ""
 
     ctx = build_context_all(docs)
     llm = _ensure_llm()
@@ -115,8 +156,16 @@ def generate_faqs(docs: Sequence[DocLike], n: int = 10) -> str:
         out = llm.invoke(msg)
         return out.content
     except ResourceExhausted:
+        logger.warning(
+            "ResourceExhausted in generate_faqs; retrying once.",
+        )
         out = llm.invoke(msg)
         return out.content
+
+
+# ---------------------------------------------------------------------------
+# Core QA logic
+# ---------------------------------------------------------------------------
 
 
 def answer_question_from_docs(
@@ -125,18 +174,29 @@ def answer_question_from_docs(
 ) -> QAResponse:
     """Answer a question using the supplied documents as context.
 
-    This function does not perform any I/O; all documents must be passed
-    explicitly by the caller.
+    This function dont make I/O: Assume the caller has already loaded
+    the documents.
+
+    Parameters
+    ----------
+    question:
+        User question in natural language.
+    docs:
+        Iterable of documents that form the knowledge base for this call.
+
+    Returns
+    -------
+    QAResponse
+        Object containing the final answer and basic metadata.
     """
+    logger.debug(
+        "answer_question_from_docs called with question=%r and %d docs.",
+        question,
+        len(docs),
+    )
+
     if not docs:
         return QAResponse(question=question, answer="")
-
-    if _legacy_qa_stuffing is not None:
-        legacy_docs = [(d.text, d.metadata) for d in _normalize_docs(docs)]
-        answer_text = _legacy_qa_stuffing(legacy_docs, question)
-        # The legacy function does not expose per-source info, so only
-        # the question and answer are returned here.
-        return QAResponse(question=question, answer=answer_text)
 
     ctx = build_context_for_question(question, docs)
     llm = _ensure_llm()
@@ -146,6 +206,9 @@ def answer_question_from_docs(
         out = llm.invoke(msg)
         answer_text = out.content
     except ResourceExhausted:
+        logger.warning(
+            "ResourceExhausted in answer_question_from_docs; retrying once.",
+        )
         out = llm.invoke(msg)
         answer_text = out.content
 
@@ -156,32 +219,55 @@ def answer_question(
     question: str,
     provider: str | None = None,
     model_id: str | None = None,
-) -> str:
-    """High-level helper used by CLI tools to answer a single question.
+) -> QAResponse:  # <- en vez de str
+    """Convenience entrypoint to answer a single question (FAISS-first)."""
 
-    This function is opinionated and convenient:
-    - It optionally overrides the model provider and model id by setting
-      the corresponding environment variables.
-    - It loads all documents from the configured `data_clean_dir`.
-    - It delegates to the legacy stuffing-based QA implementation.
-    """
-    # Optionally override provider and model id for the duration of this call.
+    logger.info("answer_question called with question=%r", question)
+
     if provider:
         os.environ["MODEL_PROVIDER"] = provider.lower()
+        logger.debug("Overriding MODEL_PROVIDER -> %s", provider.lower())
     if model_id:
-        # Both variables are set so that either provider can consume it.
         os.environ["GEN_MODEL_ID"] = model_id
         os.environ["OLLAMA_MODEL_ID"] = model_id
+        logger.debug("Overriding model id -> %s", model_id)
 
-    if _legacy_load_all_docs is None or _legacy_qa_stuffing is None:
-        # If the legacy code is not available, we cannot implement this
-        # helper in a meaningful way, so we fall back to an empty answer.
-        return ""
+    # 1) Retrieve with FAISS
+    docs = retrieve_for_question(question)
+    if not docs:
+        logger.warning("Retriever returned 0 docs; answering defensively.")
+        return QAResponse(
+            question=question,
+            answer=(
+                "No encontré suficiente información en la base de conocimiento "
+                "para responder con precisión."
+            ),
+            used_sources=[],
+        )
 
-    # Load all documents from the configured clean data directory.
-    docs = _legacy_load_all_docs(str(settings.paths.data_clean_dir))
+    # 2) Build context
+    ctx = build_context_all(docs, limit_chars=settings.context.max_context_chars_qa)
 
-    # Delegate to the existing implementation, which already handles
-    # building the context and calling the LLM with the right prompts.
-    answer_text = _legacy_qa_stuffing(docs, question)
-    return answer_text
+    # 3) Ask the model
+    llm = _ensure_llm()
+    msg = P_QA.format(context=ctx, q=question)
+    try:
+        out = llm.invoke(msg)
+        answer_text = out.content
+    except ResourceExhausted:
+        logger.warning("ResourceExhausted in answer_question; retrying once.")
+        out = llm.invoke(msg)
+        answer_text = out.content
+
+    # Optional: fill used_sources from docs metadata
+    sources: List[str] = []
+    for d in docs:
+        src = getattr(d, "metadata", {}).get("source")
+        if src and src not in sources:
+            sources.append(src)
+
+    return QAResponse(
+        question=question,
+        answer=answer_text,
+        used_sources=sources,
+    )
