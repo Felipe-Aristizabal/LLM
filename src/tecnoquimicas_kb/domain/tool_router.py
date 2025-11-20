@@ -1,141 +1,144 @@
-"""Tool router for the Tecnoquímicas conversational agent.
+"""
+Tool selection logic (router) for the Tecnoquímicas conversational agent.
 
-This module decides whether a user question should be handled by:
+This module implements an LLM-based router using a structured
+"function calling" style. The LLM receives explicit JSON Schemas
+for the available tools and must return a JSON object like:
 
-- STRUCTURED_DATA: deterministic facts from the structured JSON file.
-- RAG_QA: the document-based RAG pipeline.
+{
+  "tool_name": "structured_data",
+  "arguments": {"fact_id": "company_main_brands"},
+  "reason": "..."
+}
 """
 
 from __future__ import annotations
 
 import json
 import logging
-from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
 
 from tecnoquimicas_kb.config.settings import settings
 from tecnoquimicas_kb.domain.models import ChatMessage, ToolChoice
+from tecnoquimicas_kb.domain.prompts import P_TOOL_ROUTER
 
 logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
-# Structured intents (heuristics)
+# Tool schemas (JSON Schema) for function-calling style routing
 # ---------------------------------------------------------------------------
 
-
-@dataclass
-class _StructuredIntent:
-    """Internal representation of a structured-data intent."""
-
-    fact_id: str
-    description: str
-
-
-# Minimal list of intents that are better answered with structured data.
-_INTENTS: List[_StructuredIntent] = [
-    _StructuredIntent(
-        fact_id="phone_consumer_service_co",
-        description="Teléfono de servicio al consumidor (Colombia).",
-    ),
-    _StructuredIntent(
-        fact_id="company_nit",
-        description="NIT de Tecnoquímicas (identificación tributaria).",
-    ),
-    _StructuredIntent(
-        fact_id="hq_address_cali",
-        description="Dirección de la sede principal en Cali.",
-    ),
-    _StructuredIntent(
-        fact_id="hq_opening_hours",
-        description="Horario de atención de la sede principal.",
-    ),
-    _StructuredIntent(
-        fact_id="company_main_brands",
-        description="Lista de marcas principales de Tecnoquímicas.",
-    ),
-]
-
-_FACTS_DESCRIPTION = "\n".join(f"- {i.fact_id}: {i.description}" for i in _INTENTS)
+TOOL_SCHEMAS: Dict[str, Dict[str, Any]] = {
+    "rag_qa": {
+        "name": "rag_qa",
+        "description": (
+            "Responder preguntas abiertas usando la base documental indexada en FAISS."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "question": {
+                    "type": "string",
+                    "description": (
+                        "Pregunta del usuario en lenguaje natural. Debe ser "
+                        "la pregunta original, sin reescribir."
+                    ),
+                }
+            },
+            "required": ["question"],
+            "additionalProperties": False,
+        },
+    },
+    "structured_data": {
+        "name": "structured_data",
+        "description": (
+            "Recuperar un dato puntual desde el JSON de hechos estructurados "
+            "(direcciones, NIT, teléfonos, países, marcas principales, etc.)."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "fact_id": {
+                    "type": "string",
+                    "description": (
+                        "Identificador del fact estructurado, por ejemplo "
+                        '"company_nit", "hq_address_cali", '
+                        '"company_main_brands", "company_countries", '
+                        '"company_employees".'
+                    ),
+                }
+            },
+            "required": ["fact_id"],
+            "additionalProperties": False,
+        },
+    },
+    "compose": {
+        "name": "compose",
+        "description": (
+            "Combinar RAG (FAISS) + hechos estructurados + historial reciente "
+            "para rehacer o ampliar una respuesta anterior."
+        ),
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "question": {
+                    "type": "string",
+                    "description": (
+                        "Nueva instrucción del usuario que modifica o amplía "
+                        "respuestas previas, por ejemplo: "
+                        '"vuelve a hacer el resumen pero incluye las marcas".'
+                    ),
+                }
+            },
+            "required": ["question"],
+            "additionalProperties": False,
+        },
+    },
+}
 
 
 # ---------------------------------------------------------------------------
-# LLM-backed router
+# Internal helpers
 # ---------------------------------------------------------------------------
 
 
 def _get_router_llm() -> BaseChatModel:
-    """Create a chat model instance dedicated to routing decisions.
+    """Return a chat model instance to be used as router LLM.
 
-    For now we reuse the same provider/model configured for the main QA
-    pipeline, but this function makes it easy to switch to a cheaper
-    model in the future.
+    English comment:
+    For simplicity we reuse the same provider configuration as the
+    main QA model. If you want a cheaper or smaller model for routing,
+    you can change the model ID here independently.
     """
     provider = settings.llm.provider
-    logger.debug("Creating router LLM for provider=%s", provider)
 
     if provider == "ollama":
         return ChatOllama(model=settings.llm.ollama_model_id)
 
-    # Default: Google Gemini chat model.
+    # Default: Google Gemini family.
     return ChatGoogleGenerativeAI(model=settings.llm.google_model_id)
 
 
-_ROUTER_PROMPT: ChatPromptTemplate = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            (
-                "Eres un enrutador de herramientas para el asistente de Tecnoquímicas.\n"
-                "Debes decidir QUÉ herramienta usar para responder una pregunta.\n\n"
-                "Herramientas disponibles:\n"
-                "1) STRUCTURED_DATA — usar si la pregunta pide un DATO puntual de la lista.\n"
-                "   Identificadores (fact_id) disponibles:\n"
-                f"{_FACTS_DESCRIPTION}\n\n"
-                "2) RAG_QA — usar si la pregunta es abierta/narrativa (historia, productos,\n"
-                "   sostenibilidad, procesos, comparaciones, etc.).\n\n"
-                "Reglas:\n"
-                "- Si la pregunta corresponde a un fact_id listado, elige STRUCTURED_DATA y ese fact_id.\n"
-                "- Si la pregunta pide 'qué marcas maneja Tecnoquímicas' o 'marcas principales',\n"
-                '  usa STRUCTURED_DATA con fact_id="company_main_brands".\n'
-                "- Cuando tengas duda, usa RAG_QA.\n\n"
-                "FORMATO DE SALIDA ESTRICTO (UNA sola línea, sin bloques de código):\n"
-                '{{"tool": "STRUCTURED_DATA" | "RAG_QA", "fact_id": <string or null>, "reason": <string>}}'
-            ),
-        ),
-        (
-            "human",
-            (
-                "Historial de conversación (puede estar vacío):\n"
-                "{history}\n\n"
-                "Pregunta actual del usuario:\n"
-                "{question}\n\n"
-                "Devuelve SOLO el JSON pedido, sin ``` ni texto adicional."
-            ),
-        ),
-    ]
-)
-
-
 def _history_to_text(history: List[ChatMessage], max_messages: int = 6) -> str:
-    """Serialize recent history into a compact text representation."""
+    """Serialize the recent chat history into a compact text block."""
     if not history:
-        return "(sin historial)"
+        return "(sin historial reciente)"
 
     tail = history[-max_messages:]
     lines: List[str] = []
+
     for msg in tail:
         speaker = "Usuario" if msg.role == "user" else "Asistente"
-        # Keep lines short to avoid wasting tokens.
         text = msg.content.replace("\n", " ").strip()
         if len(text) > 200:
             text = text[:197] + "..."
         lines.append(f"{speaker}: {text}")
+
     return "\n".join(lines)
 
 
@@ -143,24 +146,30 @@ def _extract_json_object(text: str) -> str:
     """Extract the first JSON object found in the text.
 
     Many chat models wrap the JSON response in ```json ... ``` blocks.
-    This helper tries to be robust by locating the first '{' and the
-    last '}' and returning that slice.
+    This helper tries to be robust by removing common fences and then
+    taking the substring between the first '{' and the last '}'.
     """
-    s = text.strip()
+    stripped = text.strip()
     for fence in ("```json", "```JSON", "```", "json\n", "JSON\n"):
-        s = s.replace(fence, "")
-    s = s.strip()
-    i, j = s.find("{"), s.rfind("}")
-    return s if i == -1 or j == -1 or j <= i else s[i : j + 1]
+        stripped = stripped.replace(fence, "")
+    stripped = stripped.strip()
+
+    start = stripped.find("{")
+    end = stripped.rfind("}")
+    if start == -1 or end == -1 or end <= start:
+        return stripped
+
+    return stripped[start : end + 1]
 
 
 def _parse_router_json(raw_text: str) -> Optional[Dict[str, Any]]:
     """Parse the JSON emitted by the LLM router, with safety guards."""
     try:
-        return json.loads(_extract_json_object(raw_text))
+        candidate = _extract_json_object(raw_text)
+        return json.loads(candidate)
     except Exception as exc:  # noqa: BLE001
         logger.warning(
-            "Router JSON parse error for %r: %s", raw_text, exc, exc_info=True
+            "Could not parse router JSON %r: %s", raw_text, exc, exc_info=True
         )
         return None
 
@@ -171,38 +180,77 @@ def _parse_router_json(raw_text: str) -> Optional[Dict[str, Any]]:
 
 
 def choose_tool_llm(question: str, history: List[ChatMessage]) -> ToolChoice:
-    """LLM-backed router that chooses between structured data and RAG_QA."""
+    """LLM-backed router using structured tool-calling style.
+
+    The model receives the JSON Schemas of the tools and the recent
+    chat history, and must output a JSON object with:
+    - tool_name: "rag_qa" | "structured_data" | "compose"
+    - arguments: dict matching the schema of that tool
+    - reason: short explanation in Spanish
+    """
     llm = _get_router_llm()
     history_text = _history_to_text(history)
-    msg = _ROUTER_PROMPT.format(question=question, history=history_text)
+    schemas_json = json.dumps(TOOL_SCHEMAS, ensure_ascii=False, indent=2)
+
+    prompt = P_TOOL_ROUTER.format(
+        tool_schemas=schemas_json,
+        history=history_text,
+        question=question,
+    )
 
     try:
-        out = llm.invoke(msg)
+        out = llm.invoke(prompt)
         raw_text = getattr(out, "content", str(out))
         data = _parse_router_json(raw_text)
+
         if not data:
             raise ValueError("Router LLM returned unparsable JSON.")
-    except Exception:  # noqa: BLE001
+
+        tool_name = str(data.get("tool_name", "")).strip().lower()
+        arguments = data.get("arguments") or {}
+        reason = str(data.get("reason", "") or "").strip()
+    except Exception as exc:  # noqa: BLE001
         logger.warning(
-            "Router LLM JSON parse error; falling back to RAG_QA.",
+            "Router LLM error; falling back to rag_qa. Error: %s",
+            exc,
             exc_info=True,
         )
         return ToolChoice(
-            tool="RAG_QA",
-            fact_id=None,
-            reason="Router LLM JSON parse error; falling back to RAG_QA.",
+            tool_name="rag_qa",
+            arguments={"question": question},
+            reason="Router LLM error; falling back to rag_qa.",
         )
 
-    tool = str(data.get("tool", "RAG_QA")).upper()
-    fact_id = data.get("fact_id")
-    reason = str(data.get("reason", "") or "").strip()
-
-    if tool not in {"RAG_QA", "STRUCTURED_DATA"}:
-        logger.warning("Router LLM returned unknown tool=%r; forcing RAG_QA.", tool)
+    # Basic validation of the tool name.
+    if tool_name not in {"rag_qa", "structured_data", "compose"}:
+        logger.warning(
+            "Router LLM returned unknown tool_name=%r; forcing rag_qa.",
+            tool_name,
+        )
         return ToolChoice(
-            tool="RAG_QA",
-            fact_id=None,
-            reason="Router LLM returned unknown tool; forcing RAG_QA.",
+            tool_name="rag_qa",
+            arguments={"question": question},
+            reason="Router returned unknown tool; forcing rag_qa.",
         )
 
-    return ToolChoice(tool=tool, fact_id=fact_id, reason=reason or "LLM router choice.")
+    # Validation of arguments is kept minimal on purpose. You could add
+    # stricter checks per tool if needed.
+    if tool_name in {"rag_qa", "compose"} and "question" not in arguments:
+        arguments = {"question": question}
+
+    if tool_name == "structured_data" and "fact_id" not in arguments:
+        # If the router forgot fact_id, degrade gracefully to rag_qa.
+        logger.warning("structured_data selected without fact_id; degrading to rag_qa.")
+        return ToolChoice(
+            tool_name="rag_qa",
+            arguments={"question": question},
+            reason=(
+                "Router selected structured_data without fact_id; degraded to rag_qa."
+            ),
+        )
+
+    return ToolChoice(
+        tool_name=tool_name,
+        arguments=arguments,
+        reason=reason or "LLM router choice.",
+    )

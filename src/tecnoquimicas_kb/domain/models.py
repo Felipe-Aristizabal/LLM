@@ -146,10 +146,21 @@ class AgentSettings:
 
 @dataclass
 class ToolChoice:
-    """Routing decision produced by the tool router."""
+    """Routing decision produced by the tool router.
 
-    tool: str
-    fact_id: Optional[str] = None
+    Attributes
+    ----------
+    tool_name:
+        Name of the tool to invoke ("rag_qa", "structured_data", "compose").
+    arguments:
+        Dictionary of arguments to pass to the selected tool. This must
+        respect the JSON Schema of that tool (e.g. {"fact_id": "..."}).
+    reason:
+        Short natural-language explanation of why the router chose this tool.
+    """
+
+    tool_name: str
+    arguments: Dict[str, Any] = field(default_factory=dict)
     reason: str = ""
 
 

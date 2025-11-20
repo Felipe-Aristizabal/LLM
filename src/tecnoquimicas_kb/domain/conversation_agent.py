@@ -254,121 +254,112 @@ def run_agent_turn(
 ) -> AgentTurnResult:
     logger.info("run_agent_turn called with user_input=%r", user_input)
 
-    # 1) Effective settings
     cfg = agent_settings or AgentSettings()
 
-    # 2) Truncate history (FIFO)
-    orig_len = len(history)
-    if orig_len > cfg.max_history_messages:
+    # Truncate history to the configured maximum length (FIFO).
+    if len(history) > cfg.max_history_messages:
         history = history[-cfg.max_history_messages :]
-        logger.debug(
-            "History truncated from %d to %d messages.",
-            orig_len,
-            len(history),
-        )
 
-    # Build user message once
     user_msg = ChatMessage(role="user", content=user_input)
 
-    # 3) PRIORITY STEP: follow-up → COMPOSE
-    if cfg.allow_compose and _is_follow_up(
-        user_input,
-        history,
-        cfg.followup_lookback,
-    ):
-        logger.info("Follow-up detected → using COMPOSE mode.")
-        qa_resp = _compose_answer(user_input, history)
-
-        tool_details: Dict[str, Any] = {
-            "mode": "compose_rag_plus_facts",
-            "router_reason": "Follow-up detected before router.",
-            "num_sources": len(qa_resp.used_sources),
-        }
-
-        assistant_msg = ChatMessage(
-            role="assistant",
-            content=qa_resp.answer,
-            used_tool="COMPOSE",
-            sources=qa_resp.used_sources,
-            metadata={"tool_details": tool_details},
-        )
-
-        updated_history = history + [user_msg, assistant_msg]
-
-        return AgentTurnResult(
-            answer=qa_resp.answer,
-            used_tool="COMPOSE",
-            tool_details=tool_details,
-            updated_history=updated_history,
-        )
-
-    # 4) If NOT follow-up → normal router flow
+    # --- STEP 1: always call the router LLM to choose a tool ---
     if cfg.use_router:
-        choice = choose_tool_llm(user_input, history)
-        tool = choice.tool or cfg.default_tool
-        fact_id = choice.fact_id
-        router_reason = choice.reason
-        logger.debug(
-            "Router decision: tool=%s fact_id=%s reason=%r",
-            tool,
-            fact_id,
-            router_reason,
-        )
+        tool_call = choose_tool_llm(user_input, history)
+        # Normalize router output; fall back to default tool if needed.
+        tool_name = (tool_call.tool_name or cfg.default_tool).lower()
+        arguments = tool_call.arguments or {}
+        router_reason = tool_call.reason or ""
     else:
-        tool = cfg.default_tool
-        fact_id = None
+        tool_name = cfg.default_tool.lower()
+        arguments = {"question": user_input}
         router_reason = "Router disabled; using default tool."
-        logger.debug("Router disabled. Using default tool=%s", tool)
 
-    # 5) STRUCTURED_DATA branch
-    if tool == "STRUCTURED_DATA" and fact_id:
-        logger.info("Using STRUCTURED_DATA tool for this turn.")
-        rendered = _render_structured_answer(user_input, fact_id)
-        answer_text = rendered["answer"]
-        sources = rendered["sources"]
-        tool_details: Dict[str, Any] = rendered["tool_details"]
-        tool_details["router_reason"] = router_reason
+    # If COMPOSE is disabled by config, downgrade to RAG_QA.
+    if tool_name == "compose" and not cfg.allow_compose:
+        router_reason += " (compose disabled by config; downgraded to rag_qa)."
+        tool_name = "rag_qa"
+        # Ensure we have at least the minimal argument for RAG_QA.
+        arguments = {"question": user_input}
 
-        assistant_msg = ChatMessage(
-            role="assistant",
-            content=answer_text,
-            used_tool="STRUCTURED_DATA",
-            sources=sources,
-            metadata={"tool_details": tool_details},
+    # --- STEP 2: execute the selected tool with error handling ---
+    try:
+        if tool_name == "structured_data":
+            # We expect `fact_id` inside arguments for structured_data tool.
+            fact_id = arguments.get("fact_id")
+            if not fact_id:
+                raise ValueError("structured_data tool called without fact_id.")
+            rendered = _render_structured_answer(user_input, fact_id)
+            answer_text = rendered["answer"]
+            sources = rendered["sources"]
+            tool_details = {
+                **rendered["tool_details"],
+                "router_reason": router_reason,
+                "tool_name": "structured_data",
+            }
+            used_tool = "STRUCTURED_DATA"
+
+        elif tool_name == "compose":
+            # COMPOSE mode: RAG context + structured facts appendix.
+            qa_resp = _compose_answer(user_input, history)
+            answer_text = qa_resp.answer
+            sources = qa_resp.used_sources
+            tool_details = {
+                "mode": "compose_rag_plus_facts",
+                "router_reason": router_reason,
+                "num_sources": len(qa_resp.used_sources),
+                "tool_name": "compose",
+            }
+            used_tool = "COMPOSE"
+
+        else:
+            # Default: RAG_QA over the document corpus.
+            qa_resp = qa_service.answer_question(user_input)
+            answer_text = qa_resp.answer
+            sources = qa_resp.used_sources
+            tool_details = {
+                "mode": "rag_fullcontext",
+                "router_reason": router_reason,
+                "num_sources": len(qa_resp.used_sources),
+                "tool_name": "rag_qa",
+            }
+            used_tool = "RAG_QA"
+
+    except Exception as exc:
+        logger.exception("Tool execution failed; falling back to safe message.")
+        # Graceful degradation if any tool fails unexpectedly.
+        answer_text = (
+            "En este momento no pude ejecutar correctamente la herramienta "
+            "interna, pero puedo darte una descripción general basada en la "
+            "información disponible."
         )
+        # Fallback: try a simple RAG call as a secondary attempt.
+        try:
+            fallback_resp = qa_service.answer_question(user_input)
+            answer_text = fallback_resp.answer
+            sources = fallback_resp.used_sources
+        except Exception:
+            sources = []
+        tool_details = {
+            "mode": "fallback",
+            "router_reason": f"Tool execution error: {exc!r}",
+            "tool_name": tool_name,
+        }
+        used_tool = "FALLBACK"
 
-        updated_history = history + [user_msg, assistant_msg]
-
-        return AgentTurnResult(
-            answer=answer_text,
-            used_tool="STRUCTURED_DATA",
-            tool_details=tool_details,
-            updated_history=updated_history,
-        )
-
-    # 6) Default: RAG_QA via QA service
-    logger.info("Using RAG_QA tool for this turn.")
-    qa_response = qa_service.answer_question(user_input)
-
-    tool_details = {
-        "mode": "rag_fullcontext",
-        "router_reason": router_reason,
-        "num_sources": len(qa_response.used_sources),
-    }
-
+    # --- STEP 3: build assistant message and update history ---
     assistant_msg = ChatMessage(
         role="assistant",
-        content=qa_response.answer,
-        used_tool="RAG_QA",
-        sources=qa_response.used_sources,
+        content=answer_text,
+        used_tool=used_tool,
+        sources=sources,
         metadata={"tool_details": tool_details},
     )
 
     updated_history = history + [user_msg, assistant_msg]
 
     return AgentTurnResult(
-        answer=qa_response.answer,
-        used_tool="RAG_QA",
+        answer=answer_text,
+        used_tool=used_tool,
         tool_details=tool_details,
         updated_history=updated_history,
     )
