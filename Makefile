@@ -56,11 +56,15 @@ app:
 api:
 	set PYTHONPATH=src && uv run uvicorn tecnoquimicas_kb.api.server:app --reload --host 0.0.0.0 --port 8000
 
+# Ejecutar API FastAPI y ngrok juntos
+api-ngrok:
+	(set PYTHONPATH=src && uv run uvicorn tecnoquimicas_kb.api.server:app --reload --host 0.0.0.0 --port 8000 &) && sleep 5 && ngrok http 8000
+
 clean-tmp:
 	uv run python -c "import shutil,sys; shutil.rmtree('$(OUT_TMP)', ignore_errors=True)"
 
 # Modelos locales (opcional)
 ollama-pull:
-	gpt-oss:20b
+	ollama pull gpt-oss:20b
 	ollama pull gemma3:4b
 	ollama pull gemma3:270m

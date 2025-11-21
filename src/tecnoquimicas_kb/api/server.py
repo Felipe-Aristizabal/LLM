@@ -2,12 +2,26 @@ from __future__ import annotations
 
 from typing import Dict, List
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Header, Depends
 from fastapi.middleware.cors import CORSMiddleware
 
 from tecnoquimicas_kb.domain.conversation_agent import run_agent_turn
 from tecnoquimicas_kb.domain.models import AgentSettings, ChatMessage
 from tecnoquimicas_kb.api.models import ChatRequest, ChatResponse
+
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
+# ---------------------------------------------------------------------------
+# API Key Security Dependency
+# ---------------------------------------------------------------------------
+API_KEY = os.environ.get("API_KEY")
+
+def verify_api_key(x_api_key: str = Header(...)):
+    if x_api_key != API_KEY:
+        raise HTTPException(status_code=401, detail="Invalid or missing X-API-Key header.")
 
 # ---------------------------------------------------------------------------
 # In-memory session store
@@ -59,13 +73,13 @@ app.add_middleware(
 
 
 @app.get("/health")
-async def health() -> dict:
+async def health(dep: None = Depends(verify_api_key)) -> dict:
     """Simple health-check endpoint."""
     return {"status": "ok"}
 
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat_endpoint(payload: ChatRequest) -> ChatResponse:
+async def chat_endpoint(payload: ChatRequest, dep: None = Depends(verify_api_key)) -> ChatResponse:
     """Main chat endpoint that delegates to the conversation agent.
 
     English comment:
