@@ -14,9 +14,11 @@ for the available tools and must return a JSON object like:
 
 from __future__ import annotations
 
+
 import json
 import logging
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Type
+from pydantic import BaseModel, ValidationError
 
 from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -28,6 +30,27 @@ from tecnoquimicas_kb.domain.prompts import P_TOOL_ROUTER
 
 logger = logging.getLogger(__name__)
 
+
+
+# ---------------------------------------------------------------------------
+# Pydantic models for tool argument validation
+# ---------------------------------------------------------------------------
+
+class RagQAArgs(BaseModel):
+    question: str
+
+class StructuredDataArgs(BaseModel):
+    fact_id: str
+
+class ComposeArgs(BaseModel):
+    question: str
+
+# Map tool_name to its argument model
+TOOL_ARG_MODELS: Dict[str, Type[BaseModel]] = {
+    "rag_qa": RagQAArgs,
+    "structured_data": StructuredDataArgs,
+    "compose": ComposeArgs,
+}
 
 # ---------------------------------------------------------------------------
 # Tool schemas (JSON Schema) for function-calling style routing
@@ -221,8 +244,8 @@ def choose_tool_llm(question: str, history: List[ChatMessage]) -> ToolChoice:
             reason="Router LLM error; falling back to rag_qa.",
         )
 
-    # Basic validation of the tool name.
-    if tool_name not in {"rag_qa", "structured_data", "compose"}:
+    # Validación estricta del nombre de herramienta
+    if tool_name not in TOOL_ARG_MODELS:
         logger.warning(
             "Router LLM returned unknown tool_name=%r; forcing rag_qa.",
             tool_name,
@@ -233,24 +256,22 @@ def choose_tool_llm(question: str, history: List[ChatMessage]) -> ToolChoice:
             reason="Router returned unknown tool; forcing rag_qa.",
         )
 
-    # Validation of arguments is kept minimal on purpose. You could add
-    # stricter checks per tool if needed.
-    if tool_name in {"rag_qa", "compose"} and "question" not in arguments:
-        arguments = {"question": question}
-
-    if tool_name == "structured_data" and "fact_id" not in arguments:
-        # If the router forgot fact_id, degrade gracefully to rag_qa.
-        logger.warning("structured_data selected without fact_id; degrading to rag_qa.")
+    # Validación estricta de argumentos usando Pydantic
+    arg_model = TOOL_ARG_MODELS[tool_name]
+    try:
+        valid_args = arg_model(**arguments).dict()
+    except ValidationError as ve:
+        logger.warning(
+            f"Argument validation failed for tool {tool_name}: {ve}. Degrading to rag_qa."
+        )
         return ToolChoice(
             tool_name="rag_qa",
             arguments={"question": question},
-            reason=(
-                "Router selected structured_data without fact_id; degraded to rag_qa."
-            ),
+            reason=f"Argument validation failed for tool {tool_name}; degraded to rag_qa.",
         )
 
     return ToolChoice(
         tool_name=tool_name,
-        arguments=arguments,
+        arguments=valid_args,
         reason=reason or "LLM router choice.",
     )
