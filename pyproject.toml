@@ -27,6 +27,8 @@ dependencies = [
   "python-dotenv>=1.1.1",
   "streamlit>=1.50.0",
   "sentence-transformers>=5.1.2",
+  "fastapi>=0.121.3",
+  "uvicorn[standard]>=0.38.0",
 ]
 
 [project.scripts]
@@ -34,6 +36,10 @@ tq-kb = "tecnoquimicas_kb.cli:main"
 
 [tool.uv]
 package = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["tecnoquimicas_kb*"]
 
 [build-system]
 requires = ["hatchling"]

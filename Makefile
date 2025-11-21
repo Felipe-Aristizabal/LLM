@@ -46,11 +46,15 @@ data-organize:
 
 # Construir índice FAISS
 build-index:
-	uv run python -m tecnoquimicas_kb.app.cli.build_faiss
+	set PYTHONPATH=src && uv run python -m tecnoquimicas_kb.app.cli.build_faiss
 
 # Ejecutar la app 
 app:
-	uv run streamlit run src/tecnoquimicas_kb/app/app.py
+	set PYTHONPATH=src && uv run streamlit run src/tecnoquimicas_kb/app/app.py
+
+# Ejecutar API FastAPI
+api:
+	set PYTHONPATH=src && uv run uvicorn tecnoquimicas_kb.api.server:app --reload --host 0.0.0.0 --port 8000
 
 clean-tmp:
 	uv run python -c "import shutil,sys; shutil.rmtree('$(OUT_TMP)', ignore_errors=True)"
