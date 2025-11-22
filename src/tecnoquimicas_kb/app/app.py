@@ -79,7 +79,7 @@ def _render_sidebar(doc_count: int) -> Dict[str, Any]:
     )
 
     model_label = (
-        "ID de modelo (Gemini, p.ej. gemini-2.5-pro)"
+        "ID de modelo (Gemini, p.ej. gemini-flash-latest)"
         if provider == "gemini"
         else "ID de modelo (Ollama, p.ej. gemma3:4b)"
     )
@@ -99,8 +99,41 @@ def _render_sidebar(doc_count: int) -> Dict[str, Any]:
         os.environ["UI_OLLAMA_MODEL_ID"] = model_id
         os.environ.pop("UI_GEN_MODEL_ID", None)
 
+
+    # --- Sampling params ---
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("Parámetros de muestreo del modelo")
+    temperature = st.sidebar.slider(
+        "Temperature",
+        min_value=0.0,
+        max_value=2.0,
+        value=float(os.environ.get("UI_LLM_TEMPERATURE", 0.7)),
+        step=0.05,
+        help="Controla la aleatoriedad de las respuestas. 0 = determinista."
+    )
+    top_p = st.sidebar.slider(
+        "Top-p",
+        min_value=0.0,
+        max_value=1.0,
+        value=float(os.environ.get("UI_LLM_TOP_P", 1.0)),
+        step=0.01,
+        help="Probabilidad acumulada para muestreo nucleus."
+    )
+    top_k = st.sidebar.slider(
+        "Top-k",
+        min_value=1,
+        max_value=100,
+        value=int(os.environ.get("UI_LLM_TOP_K", 40)),
+        step=1,
+        help="Número de tokens candidatos para muestreo."
+    )
+    os.environ["UI_LLM_TEMPERATURE"] = str(temperature)
+    os.environ["UI_LLM_TOP_P"] = str(top_p)
+    os.environ["UI_LLM_TOP_K"] = str(top_k)
+
     st.sidebar.markdown(
-        f"**Proveedor activo:** `{provider}`  \n**Modelo:** `{model_id}`"
+        f"**Proveedor activo:** `{provider}`  \n**Modelo:** `{model_id}`  \n"
+        f"**Temperature:** `{temperature}`  \n**Top-p:** `{top_p}`  \n**Top-k:** `{top_k}`"
     )
 
     st.sidebar.markdown("---")
@@ -116,11 +149,11 @@ def _render_sidebar(doc_count: int) -> Dict[str, Any]:
     max_history = st.sidebar.slider(
         "Mensajes que recuerda el agente",
         min_value=4,
-        max_value=40,
-        value=st.session_state.get("agent_max_history", 20),
+        max_value=100,
+        value=st.session_state.get("agent_max_history", 40),
         step=1,
         key="agent_max_history",
-        help="Limita cuántos mensajes previos se usan como contexto.",
+        help="Limita cuántos mensajes previos se usan como contexto. (Recomendado: 40-100 para buena memoria)",
     )
 
     followup_lookback = st.sidebar.slider(

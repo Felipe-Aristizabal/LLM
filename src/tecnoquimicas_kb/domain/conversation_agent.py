@@ -114,7 +114,8 @@ def _compose_answer(
         # "label: value" format; do not rephrase the value
         facts_lines.append(f"- {fact.label}: {fact.value}")
         src = fact.metadata.get("source")
-        if src:
+        # Solo incluir si es URL web
+        if src and isinstance(src, str) and (src.startswith("http://") or src.startswith("https://")):
             sources.append(src)
 
     facts_text = (
@@ -194,10 +195,8 @@ def _render_structured_answer(question: str, fact_id: str) -> Dict[str, Any]:
 
     sources: List[str] = []
     source_url = fact.metadata.get("source")
-    if source_url:
+    if source_url and isinstance(source_url, str) and (source_url.startswith("http://") or source_url.startswith("https://")):
         sources.append(source_url)
-    else:
-        sources.append(f"structured_data:{fact.id}")
 
     tool_details: Dict[str, Any] = {
         "mode": "structured_data",
@@ -245,6 +244,27 @@ def _summarize_history(history: list[ChatMessage], prev_summary: str) -> str:
         return out.content.strip()
     except Exception:
         return prev_summary or ""
+        # Permitir resumir más turnos recientes para mayor robustez
+        recent = history[-16:]
+        lines = []
+        for m in recent:
+            who = "Usuario" if m.role == "user" else "Asistente"
+            lines.append(f"{who}: {m.content}")
+        chunk = "\n".join(lines)
+
+        llm = qa_service._ensure_llm()
+        prompt = (
+            "Resumen previo:\n"
+            f"{prev_summary or '(vacío)'}\n\n"
+            "Nuevos mensajes:\n"
+            f"{chunk}\n\n"
+            "Actualiza el resumen en 5–10 líneas, manteniendo hechos, contexto, instrucciones, preguntas y respuestas clave. Si hay temas repetidos, agrúpalos. Si hay instrucciones o preferencias del usuario, resáltalas. El resumen debe permitir continuar la conversación con contexto suficiente para no perder información relevante."
+        )
+        try:
+            out = llm.invoke(prompt)
+            return out.content.strip()
+        except Exception:
+            return prev_summary or ""
 
 
 def run_agent_turn(
