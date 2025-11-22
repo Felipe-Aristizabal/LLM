@@ -47,6 +47,11 @@ def _ensure_llm() -> BaseChatModel:
     ui_provider = os.getenv("UI_MODEL_PROVIDER")
     provider = (ui_provider or settings.llm.provider).lower()
 
+    # Read sampling params from environment (set by UI)
+    temperature = float(os.getenv("UI_LLM_TEMPERATURE", "0.7"))
+    top_p = float(os.getenv("UI_LLM_TOP_P", "1.0"))
+    top_k = int(os.getenv("UI_LLM_TOP_K", "40"))
+
     if provider == "ollama":
         ui_model = os.getenv("UI_OLLAMA_MODEL_ID")
         model_id = ui_model or settings.llm.ollama_model_id
@@ -57,7 +62,7 @@ def _ensure_llm() -> BaseChatModel:
             ui_provider,
             ui_model,
         )
-        return ChatOllama(model=model_id)
+        return ChatOllama(model=model_id, temperature=temperature, top_p=top_p, top_k=top_k)
 
     # Default - Gemini
     ui_model = os.getenv("UI_GEN_MODEL_ID")
@@ -69,7 +74,7 @@ def _ensure_llm() -> BaseChatModel:
         ui_provider,
         ui_model,
     )
-    return ChatGoogleGenerativeAI(model=model_id)
+    return ChatGoogleGenerativeAI(model=model_id, temperature=temperature, top_p=top_p, top_k=top_k)
 
 
 # ---------------------------------------------------------------------------
@@ -259,12 +264,14 @@ def answer_question(
         out = llm.invoke(msg)
         answer_text = out.content
 
-    # Optional: fill used_sources from docs metadata
+    # Optional: fill used_sources from docs metadata, only include web URLs
     sources: List[str] = []
     for d in docs:
         src = getattr(d, "metadata", {}).get("source")
         if src and src not in sources:
-            sources.append(src)
+            # Only include if it looks like a web URL
+            if isinstance(src, str) and (src.startswith("http://") or src.startswith("https://")):
+                sources.append(src)
 
     return QAResponse(
         question=question,

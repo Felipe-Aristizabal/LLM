@@ -11,7 +11,6 @@
 - [Despliegue y Ejecución](#despliegue-y-ejecución)
 - [API REST y Function Calling](#api-rest-y-function-calling)
 - [Integración con WhatsApp y N8N](#integración-con-whatsapp-y-n8n)
-- [Análisis de Conversaciones (t-SNE)](#análisis-de-conversaciones-t-sne)
 - [Decisiones de Diseño](#decisiones-de-diseño)
 - [Entrega Previa: Módulo 1 y 2](#entrega-previa-módulo-1-y-2)
 
@@ -89,16 +88,7 @@ Este repositorio implementa un asistente conversacional para Tecnoquímicas, cap
     - Configura credenciales de WhatsApp y API.
     - Ajusta nodos según tus endpoints y lógica.
 
----
 
-## Análisis de Conversaciones (t-SNE)
-
-1. **Logging:** Cada conversación se almacena (JSON/DB).
-2. **Embeddings:** Se generan vectores para cada conversación usando un modelo de embeddings.
-3. **Visualización:** Se aplica t-SNE para proyectar los vectores y visualizar clústeres (ejemplo: quejas, consultas, fallos).
-4. **Script/Notebook:** Incluido en `scripts/analyze_conversations.py` o notebook equivalente.
-
----
 
 ## Decisiones de Diseño
 

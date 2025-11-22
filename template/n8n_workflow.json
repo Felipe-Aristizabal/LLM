@@ -1,0 +1,1194 @@
+{
+  "name": "ChatBotW",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1472,
+        368
+      ],
+      "id": "6a8726d0-7de2-4704-a7f9-cec8a33ccf50",
+      "name": "WhatsApp Trigger",
+      "webhookId": "e6cc531a-d55c-46bc-844b-247944183b9a",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "0QHGWCigInuK0ueF",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "886677214528805",
+        "recipientPhoneNumber": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}",
+        "textBody": "=Respuesta generada por Modelo Natural:\n\n{{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        384
+      ],
+      "id": "ce4879ea-39bf-422b-8bb1-cc72c339248d",
+      "name": "Send message and wait for response",
+      "webhookId": "0bcb1af4-5517-4fe0-a2d3-de34984dd2a8",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "aaQvJk18J3b20Mxt",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7b6f9e92-8040-40bf-a3ca-ffd66b4c4bfa",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2000,
+        -928
+      ],
+      "id": "a8006e6f-cfca-4085-b253-6ab238f45228",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5",
+          "mode": "list",
+          "cachedResultName": "gpt-5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -1616,
+        -912
+      ],
+      "id": "f7fbbc05-6e9d-4dc0-b993-41d63df8d70f",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "7PLvLoV0CM6zwenz",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.5,
+      "position": [
+        -1488,
+        -800
+      ],
+      "id": "aa44de94-f64f-4d54-9eb5-df1c31b1fce6",
+      "name": "Redis Chat Memory",
+      "credentials": {
+        "redis": {
+          "id": "IB3xfzNFai5CnGD5",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1552,
+        -624
+      ],
+      "id": "b02071dc-144a-44a6-a21c-1741ff6a55dc",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Rol\nEres un asistente de IA diseñado exclusivamente para Tecnoquímicas. Solo puedes responder preguntas relacionadas con la empresa, sus productos, sus marcas, sus procesos, su historia institucional y sus canales oficiales. No puedes responder preguntas que no estén relacionadas con Tecnoquímicas.\n\nComportamiento\nRespondes de forma clara, concisa y profesional, con un tono cercano y natural del español de Colombia. Prioriza la precisión, la responsabilidad y la claridad. No inventes información. Si no tienes un dato, dilo con transparencia y sugiere un canal oficial de Tecnoquímicas.\n\nRestricción temática estricta\nSi el usuario pregunta algo fuera del ámbito de Tecnoquímicas, debes responder:\n“Puedo ayudarte solo con información relacionada con Tecnoquímicas. Para otros temas no tengo autorización. ¿En qué puedo apoyarte dentro de ese ámbito?”\n\nHerramientas disponibles\nWikipedia_Search → Úsala solo cuando complemente un tema relacionado con Tecnoquímicas y nunca para responder preguntas fuera del dominio.\nChat → Responde normalmente. No uses herramientas de Telegram u otros canales.\n\nInstrucciones de respuesta\n\nResponde siempre en formato Markdown.\n\nUsa frases cortas y claras.\n\nEvita tecnicismos innecesarios.\n\nSi el usuario pide pasos, explícalos de forma simple.\n\nLimita todas las respuestas al ámbito de Tecnoquímicas.\n\nSi el usuario insiste en temas no permitidos, repite la restricción de forma amable.\n\nMensaje del usuario:\n{{ $('WhatsApp Trigger').item.json.messages[0].text.body }}\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -1360,
+        -1072
+      ],
+      "id": "a033a294-642c-45d6-ab0a-b7a7fca025bf",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2240,
+        -688
+      ],
+      "id": "225c18d5-284b-4ef4-a4a5-ae2136f0a6e8",
+      "name": "Telegram Trigger",
+      "webhookId": "458f27aa-8017-4074-8767-55aa8e1c390e",
+      "credentials": {
+        "telegramApi": {
+          "id": "xYcRup4lrmDE2M8P",
+          "name": "Test - BotP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        -736,
+        -1040
+      ],
+      "id": "4eab9e19-7a4e-48c0-8ed7-8c6fbf4e1109",
+      "name": "Send a text message",
+      "webhookId": "6fa673e1-0451-48a3-ae8e-1e8f5fdf62ff",
+      "credentials": {
+        "telegramApi": {
+          "id": "xYcRup4lrmDE2M8P",
+          "name": "Test - BotP"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        -1024,
+        -880
+      ],
+      "id": "a6c22b7f-820d-4c65-b728-dcc4a057743a",
+      "name": "Wikipedia"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        -1152,
+        -816
+      ],
+      "id": "fa64584a-99e0-4076-8624-6bda11c195dd",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -1456,
+        -944
+      ],
+      "id": "edef6fa3-4b01-4c7b-9afc-03afce1fff45",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "L5Hok32edOhJjlGk",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/L5Hok32edOhJjlGk",
+          "cachedResultName": "Chat Logs"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "action": "nuevo",
+            "execution_id": "={{ $execution.id }}",
+            "message_type": "={{ $json.messages[0].type }}",
+            "human": "={{ $json.messages?.[0]?.audio?.mime_type || $json.text || $json['0']?.content?.[0]?.text || '' }}\n",
+            "id": "={{ $json.messages[0].from }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "human",
+              "displayName": "human",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "ia",
+              "displayName": "ia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": true
+            },
+            {
+              "id": "message_type",
+              "displayName": "message_type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "execution_id",
+              "displayName": "execution_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "action",
+              "displayName": "action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -848,
+        384
+      ],
+      "id": "b48089eb-922f-445d-afde-e2d73b0c89d1",
+      "name": "New Message"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "70c12ed3-4f5e-48d6-8880-430842b155ff",
+              "leftValue": "={{ $json.messages[0].audio.voice }}",
+              "rightValue": "={{ \"audio\" }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1680,
+        48
+      ],
+      "id": "77bc8cd9-cd23-491b-99c8-5ebd627614cc",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.facebook.com/v20.0/{{$json[\"messages\"][0][\"audio\"][\"id\"]}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAWXBErFaVkBQDoWhRqkUZBPbMcPXh1CRt4aQK9xuBYwcFOsHuNfFqCZCWoZAaUKV3oeCY3X4hIaCqCHa0urYbqBzva1OhM567yfqVpEYOt7V1ZC7B5zqYNUfEmzYLXjd8uDBUri7gOsTWB6W9YNNgUjNsceUZAXPZAEDcz2UZBCiC3E1XUumhBDd8DM3NzIvMYRgZDZD"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -992,
+        -48
+      ],
+      "id": "3d37e126-6c39-4cba-936a-1a8491b98057",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2,
+      "position": [
+        -608,
+        -48
+      ],
+      "id": "0798230f-0f4d-4bb4-abc8-3706e88e343c",
+      "name": "Transcribe a recording1",
+      "credentials": {
+        "openAiApi": {
+          "id": "7PLvLoV0CM6zwenz",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{$json[\"url\"]}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAWXBErFaVkBQDoWhRqkUZBPbMcPXh1CRt4aQK9xuBYwcFOsHuNfFqCZCWoZAaUKV3oeCY3X4hIaCqCHa0urYbqBzva1OhM567yfqVpEYOt7V1ZC7B5zqYNUfEmzYLXjd8uDBUri7gOsTWB6W9YNNgUjNsceUZAXPZAEDcz2UZBCiC3E1XUumhBDd8DM3NzIvMYRgZDZD"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "=data"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -816,
+        -48
+      ],
+      "id": "1f8595ec-463e-4d56-933c-fb3cc3d7160a",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5",
+          "mode": "list",
+          "cachedResultName": "gpt-5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -288,
+        688
+      ],
+      "id": "ec57a8c2-23a8-4e3e-9532-8724c50b5600",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "7PLvLoV0CM6zwenz",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryRedisChat",
+      "typeVersion": 1.5,
+      "position": [
+        -1024,
+        -544
+      ],
+      "id": "913a2c9f-f585-465e-9f8c-c2765ea52556",
+      "name": "Redis Chat Memory1",
+      "credentials": {
+        "redis": {
+          "id": "IB3xfzNFai5CnGD5",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=# Rol del Asistente (Asistente TQ)\n\nEres un asistente de Inteligencia Artificial diseñado exclusivamente para *Tecnoquímicas (TQ)*, una empresa farmacéutica y de consumo importante en Colombia, conocida por su lema \"TQ Confiable\" (referencia: https://www.tqconfiable.com/).\n\n## Comportamiento y Tono\n\n1.  *Tono:* Responde de forma clara, concisa y profesional, manteniendo un tono *cercano, responsable y natural del español de Colombia*.\n2.  *Precisión:* Prioriza la *precisión* y la *responsabilidad*. Nunca inventes información.\n3.  *Restricción de Datos:* Si no tienes un dato específico, dilo con transparencia (ejemplo: \"No tengo ese dato exacto en este momento, por favor contacta nuestro canal oficial de [Área]\").\n\n## Ámbito Temático Estricto (Dominio TQ)\n\nSolo puedes responder preguntas que estén *directamente relacionadas* con el universo Tecnoquímicas:\n* La empresa, su historia y sus valores.\n* Sus productos, marcas comerciales (e.g., Winny, Noraver, Bonfiest, etc.) y su portafolio.\n* Sus procesos corporativos, distribución y canales oficiales de contacto.\n\n## Instrucciones de Respuesta\n\n* Responde siempre en formato *Markdown*, usando frases cortas y claras.\n* Evita el uso de tecnicismos o jerga innecesaria.\n* Si el usuario solicita pasos o procedimientos, explícalos de forma *simple y enumerada*.\n\n## Mensaje Introductorio (Bienvenida)\n\nUtiliza el siguiente texto para dar la bienvenida inicial al usuario. (Solo se muestra una vez al inicio de la conversación).\n\n> \"¡Hola! 👋 Soy tu Asistente de Inteligencia Artificial, diseñado por y para *Tecnoquímicas. Mi rol es ayudarte de forma **rápida, clara y confiable* con información sobre nuestra empresa y lo que hacemos: *Productos, Historia y Canales Oficiales. Estoy aquí para responder preguntas sobre **Tecnoquímicas y su universo*. ¿En qué puedo apoyarte hoy? ¡Empecemos!\"\n\n## Restricción Temática Estricta (Guardrail)\n\nSi el usuario pregunta algo que esté *fuera* del ámbito de Tecnoquímicas (ejemplo: clima, política, otras empresas, recetas de cocina, etc.), debes responder *exclusivamente* con el siguiente mensaje:\n\n> “Puedo ayudarte solo con información relacionada con Tecnoquímicas. Para otros temas no tengo autorización. ¿En qué puedo apoyarte dentro de ese ámbito?”\n\n*Comienza la interacción con el 'Mensaje Introductorio'.*\n\nMensaje del usuario:\n{{ $json.output[0].content[0].text }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        -288,
+        384
+      ],
+      "id": "e122b20c-a18c-43ab-956b-ad8c3b1a36e6",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -192,
+        592
+      ],
+      "id": "8e4c2db1-f76e-46d3-927b-4198421369e3",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolWikipedia",
+      "typeVersion": 1,
+      "position": [
+        240,
+        640
+      ],
+      "id": "154b88ea-f572-40ba-b56a-cd57337681cd",
+      "name": "Wikipedia1"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        16,
+        592
+      ],
+      "id": "161e1a9c-9095-43dc-a1e8-3001dc051748",
+      "name": "Calculator1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -48,
+        208
+      ],
+      "id": "8dff21a2-e6b0-4c6a-a224-02116f957e12",
+      "name": "Esperar",
+      "webhookId": "5f83514c-92eb-497f-aa47-99cfa21c3187"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "886677214528805",
+        "recipientPhoneNumber": "={{ $('WhatsApp Trigger').item.json.contacts[0].wa_id }}",
+        "textBody": "=*Mensaje Generado por el EndPoint:*\n\n{{ $json.answer }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        208
+      ],
+      "id": "2804a23a-d278-4569-866d-a5032d92b20a",
+      "name": "Send message and wait for response1",
+      "webhookId": "0bcb1af4-5517-4fe0-a2d3-de34984dd2a8",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "aaQvJk18J3b20Mxt",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://deridingly-unmeddlesome-thi.ngrok-free.dev/chat",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "tqtest2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"session_id\": \"{{ $('New Message').item.json.execution_id }}\",\n  \"message\": \"{{ $json.output[0].content[0].text }}\"\n}    ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -272,
+        208
+      ],
+      "id": "ee052bfb-2207-4603-8c11-9cc3304ca41d",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.facebook.com/v20.0/{{ $json.messages[0].image.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAWXBErFaVkBQDoWhRqkUZBPbMcPXh1CRt4aQK9xuBYwcFOsHuNfFqCZCWoZAaUKV3oeCY3X4hIaCqCHa0urYbqBzva1OhM567yfqVpEYOt7V1ZC7B5zqYNUfEmzYLXjd8uDBUri7gOsTWB6W9YNNgUjNsceUZAXPZAEDcz2UZBCiC3E1XUumhBDd8DM3NzIvMYRgZDZD"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1296,
+        672
+      ],
+      "id": "6a12689e-8cf2-4b8e-91ec-ee2e7ad7d83a",
+      "name": "HTTP Request2"
+    },
+    {
+      "parameters": {
+        "url": "={{$json[\"url\"]}}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer EAAWXBErFaVkBQDoWhRqkUZBPbMcPXh1CRt4aQK9xuBYwcFOsHuNfFqCZCWoZAaUKV3oeCY3X4hIaCqCHa0urYbqBzva1OhM567yfqVpEYOt7V1ZC7B5zqYNUfEmzYLXjd8uDBUri7gOsTWB6W9YNNgUjNsceUZAXPZAEDcz2UZBCiC3E1XUumhBDd8DM3NzIvMYRgZDZD"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file",
+              "outputPropertyName": "=data"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        -1120,
+        672
+      ],
+      "id": "25683612-f20a-4a2c-ad81-f05476d0d48b",
+      "name": "HTTP Request4"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "GPT-4O"
+        },
+        "text": "=Y dime que dice la imagen?\ny agregale esto:\n{{ $('WhatsApp Trigger').item.json.messages[0].image.caption }}\n",
+        "inputType": "base64",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2,
+      "position": [
+        -976,
+        672
+      ],
+      "id": "f382d3e8-012d-4f4f-8b76-4591f5fa3f78",
+      "name": "Analyze image",
+      "credentials": {
+        "openAiApi": {
+          "id": "7PLvLoV0CM6zwenz",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "9f2d4637-4ec9-4e36-9850-80108f0593ad",
+                    "leftValue": "={{ $json.messages[0].type }}",
+                    "rightValue": "audio",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c8f129fd-3746-4c53-b3c1-4162f7fa1f6e",
+                    "leftValue": "={{ $json.messages[0].type }}",
+                    "rightValue": "text",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.messages[0].type }}",
+                    "rightValue": "image",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "bf2c6c55-6ac6-4c36-b223-34026074277f"
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -1184,
+        368
+      ],
+      "id": "65874181-a012-41f2-96d2-34dc5688b9d5",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4",
+          "mode": "list",
+          "cachedResultName": "GPT-4"
+        },
+        "responses": {
+          "values": [
+            {
+              "content": "=Devuelve ese mismo texto pero sin saltos de linea ni otro tipo de caracter especial de progamacion para poder ingresarlo como promp en otro modelo, solo respondeme con el mensaje ya filtrado, sin mensaje de si quiero algo mas o entre otras, soolo necesitoo ese texto, no uses comillas ni simples ni dobles, el texto que necesito que filtres es:\n{{ $json.human }}\no\n{{ $json.messages[0].text.body }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2,
+      "position": [
+        -672,
+        384
+      ],
+      "id": "ed3f3f86-9fc5-4dfa-9911-9ddc05f1779d",
+      "name": "Message a model",
+      "credentials": {
+        "openAiApi": {
+          "id": "7PLvLoV0CM6zwenz",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Telegram Trigger": [
+      {
+        "json": {
+          "update_id": 594978268,
+          "message": {
+            "message_id": 3,
+            "from": {
+              "id": 7347709763,
+              "is_bot": false,
+              "first_name": ".",
+              "last_name": ".",
+              "language_code": "es"
+            },
+            "chat": {
+              "id": 7347709763,
+              "first_name": ".",
+              "last_name": ".",
+              "type": "private"
+            },
+            "date": 1763707507,
+            "text": "Hola"
+          }
+        }
+      }
+    ],
+    "If1": [
+      {
+        "json": {
+          "messaging_product": "whatsapp",
+          "metadata": {
+            "display_phone_number": "15551569757",
+            "phone_number_id": "886677214528805"
+          },
+          "contacts": [
+            {
+              "profile": {
+                "name": "Manuel Henao"
+              },
+              "wa_id": "573167748077"
+            }
+          ],
+          "messages": [
+            {
+              "from": "573167748077",
+              "id": "wamid.HBgMNTczMTY3NzQ4MDc3FQIAEhggQUM0RjNDNkQ1MjRCMTczODk0ODBFNkNBOUNBQzYzNjQA",
+              "timestamp": "1763781279",
+              "type": "image",
+              "image": {
+                "mime_type": "image/jpeg",
+                "sha256": "OzgG8nRMnYsQNZrq5gEH+8LWyCpQhm5Q3v11J4BFYgk=",
+                "id": "1333857598041504"
+              }
+            }
+          ],
+          "field": "messages"
+        }
+      }
+    ],
+    "WhatsApp Trigger": [
+      {
+        "json": {
+          "messaging_product": "whatsapp",
+          "metadata": {
+            "display_phone_number": "15551569757",
+            "phone_number_id": "886677214528805"
+          },
+          "contacts": [
+            {
+              "profile": {
+                "name": "Diego Salcedo"
+              },
+              "wa_id": "573226196180"
+            }
+          ],
+          "messages": [
+            {
+              "from": "573226196180",
+              "id": "wamid.HBgMNTczMjI2MTk2MTgwFQIAEhgUM0Y0Q0U0NzA1MUM1REM5Q0RFOEEA",
+              "timestamp": "1763787964",
+              "type": "image",
+              "image": {
+                "caption": "¿Dónde puedo encontrar este producto?",
+                "mime_type": "image/jpeg",
+                "sha256": "IjBSW5UXPS3Dy9jyDcxRu5CIbjN60U64B4Xo7qDyJyg=",
+                "id": "1348758696941477"
+              }
+            }
+          ],
+          "field": "messages"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "WhatsApp Trigger": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Chat Memory": {
+      "ai_memory": [
+        []
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        []
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        []
+      ]
+    },
+    "Wikipedia": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New Message": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [],
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Transcribe a recording1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Transcribe a recording1": {
+      "main": [
+        [
+          {
+            "node": "New Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Send message and wait for response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esperar": {
+      "main": [
+        [
+          {
+            "node": "Send message and wait for response1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Esperar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request4": {
+      "main": [
+        [
+          {
+            "node": "Analyze image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze image": {
+      "main": [
+        [
+          {
+            "node": "New Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "New Message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1f44c4b6-f851-4e90-aab4-cf945b54ff15",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7b468b40423d7b71185b7b570feaea081668efcab0b25af15d1ac823d2a1f0cf"
+  },
+  "id": "jo2rx82CA1hlioGa",
+  "tags": []
+}
